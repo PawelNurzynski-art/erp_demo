@@ -1,4 +1,4 @@
-package com.erp_demo.contractor;
+package com.erp_demo.counterparty;
 
 import jakarta.persistence.*;
 
