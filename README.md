@@ -1,14 +1,24 @@
 ERP DEMO
 
-Packages:
+Reorganized packages to:
 <ul>
-<li>counterparty - added CRUD functionalities</li>
+<li>controller</li>
+<li>entity</li>
+<li>repository</li>
+</ul>
+<br>
+
+Added:
+<ul>
+<li>GoodController</li>
+<li>GoodEntity</li>
+<li>GoodRepository</li>
 </ul>
 <br>
 
 Next to do:
 <ul>
-<li>goods</li>
+<li>goods warehouse</li>
 <li>invoices</li>
 </ul>
 

@@ -1,25 +1,27 @@
-package com.erp_demo.counterparty;
+package com.erp_demo.controller;
 
+import com.erp_demo.entity.CounterpartyEntity;
+import com.erp_demo.repository.CounterpartyRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/counter-party")
-public class CounterPartyController {
-    public CounterPartyRepository counterPartyRepository;
+public class CounterpartyController {
+    public CounterpartyRepository counterPartyRepository;
 
-    public CounterPartyController(CounterPartyRepository counterPartyRepository) {
+    public CounterpartyController(CounterpartyRepository counterPartyRepository) {
         this.counterPartyRepository = counterPartyRepository;
     }
 
-    // displaying all contractors
+    // displaying all counterParty
     @GetMapping("")
-    public List<CounterParty> getCounterParty() {
+    public List<CounterpartyEntity> getCounterParty() {
         return counterPartyRepository.findAll();
     }
 
-    // adding new contractor
+    // adding new counterParty
     // template
     record NewCounterPartyRequest(
             String name,
@@ -30,10 +32,10 @@ public class CounterPartyController {
             String bankAccount
     ) {}
 
-    // adding new contractor to database
+    // adding new counterParty to database
     @PostMapping("")
-    public CounterParty addCounterParty(@RequestBody NewCounterPartyRequest request) {
-        CounterParty counterParty = new CounterParty();
+    public CounterpartyEntity addCounterParty(@RequestBody NewCounterPartyRequest request) {
+        CounterpartyEntity counterParty = new CounterpartyEntity();
 
         counterParty.setName(request.name);
         counterParty.setStreet(request.street);
@@ -47,7 +49,7 @@ public class CounterPartyController {
     }
 
 
-    // delete contractor from database
+    // delete counterParty from database
     @DeleteMapping("/delete/{id}")
     public void deleteCounterParty(@PathVariable("id") Integer id) {
         counterPartyRepository.deleteById(id);
@@ -69,7 +71,7 @@ public class CounterPartyController {
     @PutMapping("/update/{id}")
     public void updateCounterParty(@PathVariable("id") Integer id,
                                  @RequestBody UpdateCounterPartyRequest request) {
-        CounterParty counterParty = counterPartyRepository.getById(id);
+        CounterpartyEntity counterParty = counterPartyRepository.getById(id);
 
         counterParty.setName(request.name);
         counterParty.setStreet(request.street);

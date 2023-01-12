@@ -1,11 +1,11 @@
-package com.erp_demo.counterparty;
+package com.erp_demo.entity;
 
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
-public class CounterParty {
+public class CounterpartyEntity {
     @Id
     @SequenceGenerator(
             name = "counterparty_id_sequence",
@@ -27,12 +27,12 @@ public class CounterParty {
     private String bankAccount;
 
     // constructors
-    public CounterParty() {
+    public CounterpartyEntity() {
     }
 
-    public CounterParty(Integer id, String name, String street,
-                        String houseNumber, String zipCode, String city,
-                        String bankAccount) {
+    public CounterpartyEntity(Integer id, String name, String street,
+                              String houseNumber, String zipCode, String city,
+                              String bankAccount) {
         this.id = id;
         this.name = name;
         this.street = street;
@@ -105,7 +105,7 @@ public class CounterParty {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CounterParty that = (CounterParty) o;
+        CounterpartyEntity that = (CounterpartyEntity) o;
         return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(street, that.street) && Objects.equals(houseNumber, that.houseNumber) && Objects.equals(zipCode, that.zipCode) && Objects.equals(city, that.city) && Objects.equals(bankAccount, that.bankAccount);
     }
 
