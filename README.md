@@ -17,7 +17,9 @@ Added:
 Next to do:
 <ul>
 <li>GoodStorage</li>
-<li>invoices</li>
+<li>Invoices</li>
+<li>Sales</li>
+<li>Purchaes</li>
 </ul>
 
 
