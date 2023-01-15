@@ -18,8 +18,6 @@ Next to do:
 <ul>
 <li>GoodStorage</li>
 <li>Invoices</li>
-<li>Sales</li>
-<li>Purchaes</li>
 </ul>
 
 
