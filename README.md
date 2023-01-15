@@ -16,7 +16,7 @@ Added:
 
 Next to do:
 <ul>
-<li>goods warehouse</li>
+<li>GoodStorage</li>
 <li>invoices</li>
 </ul>
 
