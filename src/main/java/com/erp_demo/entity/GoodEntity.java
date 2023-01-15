@@ -23,6 +23,7 @@ public class GoodEntity {
     private String measureUnit;
     private double purchasePrice;
     private double margin;
+    // in future definitionState type change to enum
     private int definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
     private String description;
 

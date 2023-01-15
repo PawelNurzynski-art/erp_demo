@@ -6,7 +6,6 @@ Reorganized packages to:
 <li>entity</li>
 <li>repository</li>
 </ul>
-<br>
 
 Added:
 <ul>
@@ -14,7 +13,6 @@ Added:
 <li>GoodEntity</li>
 <li>GoodRepository</li>
 </ul>
-<br>
 
 Next to do:
 <ul>

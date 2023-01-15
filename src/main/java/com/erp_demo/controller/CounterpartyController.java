@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/counter-party")
+@RequestMapping("/counterparty")
 public class CounterpartyController {
     public CounterpartyRepository counterPartyRepository;
 
