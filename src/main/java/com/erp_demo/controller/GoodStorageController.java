@@ -2,9 +2,7 @@ package com.erp_demo.controller;
 
 import com.erp_demo.entity.GoodStorageEntity;
 import com.erp_demo.repository.GoodStorageRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,11 +24,49 @@ public class GoodStorageController {
 
 
     // adding good to storage (buying goods)
+    // or updating good in storage
     // template
-    record addGoodToStorage(
-            int goodId,
-            int supplierId, // from counterparty
+    record GoodToStorageRequest(
+            int goodId, // from GoodEntity
+            int supplierId, // from CounterpartyEntity
             double quantity,
             String goodBatch
     ) {}
+
+
+    // adding new good to storage in database
+    @PostMapping("")
+    public GoodStorageEntity addGoodToStorage(@RequestBody GoodToStorageRequest request) {
+        GoodStorageEntity good = new GoodStorageEntity();
+
+        good.setGoodId(request.goodId);
+        good.setSupplierId(request.supplierId);
+        good.setQuantity(request.supplierId);
+        good.setGoodBatch(request.goodBatch);
+
+        goodStorageRepository.save(good);
+        return good;
+    }
+
+
+    // deleting good from storage in database
+    @DeleteMapping("/delete/{id}")
+    public void deleteGoodFromStorage(@PathVariable("id") Integer id) {
+        goodStorageRepository.deleteById(id);
+    }
+
+
+    // updating good in database
+    @PutMapping("/update/{id}")
+    public void updateGoodInStorage(@PathVariable("id") Integer id,
+                           @RequestBody GoodToStorageRequest request) {
+        GoodStorageEntity good = goodStorageRepository.getById(id);
+
+        good.setGoodId(request.goodId);
+        good.setSupplierId(request.supplierId);
+        good.setQuantity(request.supplierId);
+        good.setGoodBatch(request.goodBatch);
+
+        goodStorageRepository.save(good);
+    }
 }

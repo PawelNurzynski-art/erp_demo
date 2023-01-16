@@ -9,14 +9,21 @@ Reorganized packages to:
 
 Added:
 <ul>
-<li>GoodController</li>
-<li>GoodEntity</li>
-<li>GoodRepository</li>
+<li>GoodStorageController</li>
+<li>GoodSorageEntity</li>
+<li>GoodStorageRepository</li>
 </ul>
+
+Problems with GoodStorage:
+<ul>
+<li>post: when adding good to storage: "quantity": 99.99, in database it is saved as 1.0</li>
+<li>put: when updating good in storage, the value is correct</li>
+</ul>
+
+Added file with collection in Postman: erp_demo.postman_collection.json.
 
 Next to do:
 <ul>
-<li>GoodStorage</li>
 <li>Invoices</li>
 </ul>
 

@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "63977dec-098c-4bc4-bfa7-5cf72fbe4fc6",
+		"name": "erp_demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CounterParty",
+			"item": [
+				{
+					"name": "get all counterParties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/counterparty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"counterparty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new counterParty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Los Amigos\",\r\n    \"street\": \"Street View\",\r\n    \"houseNumber\": \"10\",\r\n    \"zipCode\": \"7657-400\",\r\n    \"city\": \"Los Angeles\",\r\n    \"bankAccount\": \"US12345678901234567890123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/counterparty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"counterparty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete counterParty",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/counterparty/delete/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"counterparty",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update counterParty",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"xxxxxxxxxxx\",\r\n    \"street\": \"xxxxxxxxxxxxxx\",\r\n    \"houseNumber\": \"10\",\r\n    \"zipCode\": \"7657-400\",\r\n    \"city\": \"Los Angeles\",\r\n    \"bankAccount\": \"US12345678901234567890123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/counterparty/update/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"counterparty",
+								"update",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Good",
+			"item": [
+				{
+					"name": "get all goods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/good",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new good",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"towar 1\",\r\n    \"measureUnit\": \"kg\",\r\n    \"purchasePrice\": 100.56,\r\n    \"margin\": 0.2,\r\n    \"definitionState\": 1,\r\n    \"description\": \"This is new good. Adding to test new entity.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/good",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete good",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/good/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update good",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"towar 24\",\r\n    \"measureUnit\": \"szt\",\r\n    \"purchasePrice\": 1000.78,\r\n    \"margin\": 0.5,\r\n    \"definitionState\": 2,\r\n    \"description\": \"This is approved good. Testing updating.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/good/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GoodStorage",
+			"item": [
+				{
+					"name": "get all goods in storage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/good-storage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good-storage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add good to storage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"goodId\": 1,\n    \"supplierId\": 1,\n    \"quantity\": 99.99,\n    \"goodBatch\": \"2022-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/good-storage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good-storage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete good in storage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/good-storage/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good-storage",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update good in storage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"goodId\": 99,\n    \"supplierId\": 99,\n    \"quantity\": 999.99,\n    \"goodBatch\": \"2022-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/good-storage/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"good-storage",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -19,8 +19,8 @@ public class GoodStorageEntity {
     )
 
     private int id;
-    private int goodId;
-    private int supplierId; // from counterparty
+    private int goodId; // from GoodEntity
+    private int supplierId; // from CounterpartyEntity
     private double quantity;
     private String goodBatch;
 
