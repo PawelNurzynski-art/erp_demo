@@ -240,7 +240,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"goodId\": 1,\n    \"supplierId\": 1,\n    \"quantity\": 99.99,\n    \"goodBatch\": \"2022-01\"\n}",
+							"raw": "{\n    \"goodId\": 1,\n    \"supplierId\": 1,\n    \"quantity\": 99.99,\n    \"goodBatch\": \"2022-01\",\n    \"invoiceId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -289,7 +289,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"goodId\": 99,\n    \"supplierId\": 99,\n    \"quantity\": 999.99,\n    \"goodBatch\": \"2022-01\"\n}",
+							"raw": "{\n    \"goodId\": 99,\n    \"supplierId\": 99,\n    \"quantity\": 999.99,\n    \"goodBatch\": \"2022-01\",\n    \"invoiceId\": 99\n}",
 							"options": {
 								"raw": {
 									"language": "json"
