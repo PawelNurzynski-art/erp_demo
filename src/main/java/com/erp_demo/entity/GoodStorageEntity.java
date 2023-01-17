@@ -23,6 +23,7 @@ public class GoodStorageEntity {
     private int supplierId; // from CounterpartyEntity
     private double quantity;
     private String goodBatch;
+    private int invoiceId; // from InvoiceEntity
 
 
     // constructors
@@ -30,12 +31,13 @@ public class GoodStorageEntity {
     }
 
 
-    public GoodStorageEntity(int id, int goodId, int supplierId, double quantity, String goodBatch) {
+    public GoodStorageEntity(int id, int goodId, int supplierId, double quantity, String goodBatch, int invoiceId) {
         this.id = id;
         this.goodId = goodId;
         this.supplierId = supplierId;
         this.quantity = quantity;
         this.goodBatch = goodBatch;
+        this.invoiceId = invoiceId;
     }
 
 
@@ -80,6 +82,13 @@ public class GoodStorageEntity {
         this.goodBatch = goodBatch;
     }
 
+    public int getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(int invoiceId) {
+        this.invoiceId = invoiceId;
+    }
 
     // equals and hashCode
     @Override
@@ -87,16 +96,16 @@ public class GoodStorageEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GoodStorageEntity that = (GoodStorageEntity) o;
-        return id == that.id && goodId == that.goodId && supplierId == that.supplierId && Double.compare(that.quantity, quantity) == 0 && goodBatch.equals(that.goodBatch);
+        return id == that.id && goodId == that.goodId && supplierId == that.supplierId && Double.compare(that.quantity, quantity) == 0 && invoiceId == that.invoiceId && goodBatch.equals(that.goodBatch);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, goodId, supplierId, quantity, goodBatch);
+        return Objects.hash(id, goodId, supplierId, quantity, goodBatch, invoiceId);
     }
 
-
     // toString
+
     @Override
     public String toString() {
         return "GoodStorageEntity{" +
@@ -105,6 +114,8 @@ public class GoodStorageEntity {
                 ", supplierId=" + supplierId +
                 ", quantity=" + quantity +
                 ", goodBatch='" + goodBatch + '\'' +
+                ", invoiceId=" + invoiceId +
                 '}';
     }
+
 }

@@ -30,7 +30,8 @@ public class GoodStorageController {
             int goodId, // from GoodEntity
             int supplierId, // from CounterpartyEntity
             double quantity,
-            String goodBatch
+            String goodBatch,
+            int invoiceId // from InvoiceEntity
     ) {}
 
 
@@ -41,8 +42,9 @@ public class GoodStorageController {
 
         good.setGoodId(request.goodId);
         good.setSupplierId(request.supplierId);
-        good.setQuantity(request.supplierId);
+        good.setQuantity(request.quantity);
         good.setGoodBatch(request.goodBatch);
+        good.setInvoiceId(request.invoiceId);
 
         goodStorageRepository.save(good);
         return good;
@@ -64,8 +66,9 @@ public class GoodStorageController {
 
         good.setGoodId(request.goodId);
         good.setSupplierId(request.supplierId);
-        good.setQuantity(request.supplierId);
+        good.setQuantity(request.quantity);
         good.setGoodBatch(request.goodBatch);
+        good.setInvoiceId(request.invoiceId);
 
         goodStorageRepository.save(good);
     }
