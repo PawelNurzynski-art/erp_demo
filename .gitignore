@@ -31,3 +31,4 @@ build/
 ### VS Code ###
 .vscode/
 /HELP.md
+/src/main/java/com/erp_demo/TestClass.java

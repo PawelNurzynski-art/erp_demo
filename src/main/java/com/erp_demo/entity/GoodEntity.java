@@ -32,7 +32,8 @@ public class GoodEntity {
     public GoodEntity() {
     }
 
-    public GoodEntity(int id, String name, String measureUnit, double purchasePrice, double margin, int definitionState, String description) {
+    public GoodEntity(int id, String name, String measureUnit, double purchasePrice, double margin,
+                      int definitionState, String description) {
         this.id = id;
         this.name = name;
         this.measureUnit = measureUnit;
