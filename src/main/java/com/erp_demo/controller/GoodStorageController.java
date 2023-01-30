@@ -1,5 +1,6 @@
 package com.erp_demo.controller;
 
+import com.erp_demo.entity.GoodEntity;
 import com.erp_demo.entity.GoodStorageEntity;
 import com.erp_demo.repository.GoodStorageRepository;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class GoodStorageController {
     // or updating good in storage
     // template
     record GoodToStorageRequest(
-            int goodId, // from GoodEntity
+            GoodEntity goodId, // from GoodEntity
             int supplierId, // from CounterpartyEntity
             double quantity,
             String goodBatch,

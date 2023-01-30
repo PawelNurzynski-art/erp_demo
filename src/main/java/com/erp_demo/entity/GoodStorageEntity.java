@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "good_storage")
 public class GoodStorageEntity {
     @Id
     @SequenceGenerator(
@@ -19,7 +20,9 @@ public class GoodStorageEntity {
     )
 
     private int id;
-    private int goodId; // from GoodEntity
+    @ManyToOne
+//    @JoinColumn(name = "good_id")
+    private GoodEntity goodId;
     private int supplierId; // from CounterpartyEntity
     private double quantity;
     private String goodBatch;
@@ -31,7 +34,8 @@ public class GoodStorageEntity {
     }
 
 
-    public GoodStorageEntity(int id, int goodId, int supplierId, double quantity, String goodBatch, int invoiceId) {
+    public GoodStorageEntity(int id, GoodEntity goodId, int supplierId, double quantity, String goodBatch,
+                             int invoiceId) {
         this.id = id;
         this.goodId = goodId;
         this.supplierId = supplierId;
@@ -50,11 +54,11 @@ public class GoodStorageEntity {
         this.id = id;
     }
 
-    public int getGoodId() {
+    public GoodEntity getGoodId() {
         return goodId;
     }
 
-    public void setGoodId(int goodId) {
+    public void setGoodId(GoodEntity goodId) {
         this.goodId = goodId;
     }
 
@@ -96,7 +100,9 @@ public class GoodStorageEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GoodStorageEntity that = (GoodStorageEntity) o;
-        return id == that.id && goodId == that.goodId && supplierId == that.supplierId && Double.compare(that.quantity, quantity) == 0 && invoiceId == that.invoiceId && goodBatch.equals(that.goodBatch);
+        return id == that.id && goodId == that.goodId && supplierId == that.supplierId
+                && Double.compare(that.quantity, quantity) == 0 && invoiceId == that.invoiceId
+                && goodBatch.equals(that.goodBatch);
     }
 
     @Override

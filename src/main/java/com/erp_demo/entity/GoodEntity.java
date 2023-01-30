@@ -2,6 +2,8 @@ package com.erp_demo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +28,11 @@ public class GoodEntity {
     // in future definitionState type change to enum
     private int definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
     private String description;
+    @OneToMany(
+            mappedBy = "goodId",
+            fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    private List<GoodStorageEntity> goodsInStorage = new ArrayList<>();
 
 
     // constructors
