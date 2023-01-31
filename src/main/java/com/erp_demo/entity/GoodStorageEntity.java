@@ -21,7 +21,7 @@ public class GoodStorageEntity {
 
     private int id;
     @ManyToOne
-//    @JoinColumn(name = "good_id")
+    @JoinColumn(name = "goodId")
     private GoodEntity goodId;
     private int supplierId; // from CounterpartyEntity
     private double quantity;
