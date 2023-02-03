@@ -1,24 +1,15 @@
 package com.erp_demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 public class CounterpartyEntity {
     @Id
-    @SequenceGenerator(
-            name = "counterparty_id_sequence",
-            sequenceName = "counterparty_id_sequence",
-            allocationSize = 1
-    )
-
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "counterparty_id_sequence"
-    )
-
-    private Integer id;
+    private UUID id;
     private String name;
     private String street;
     private String houseNumber;
@@ -30,10 +21,9 @@ public class CounterpartyEntity {
     public CounterpartyEntity() {
     }
 
-    public CounterpartyEntity(Integer id, String name, String street,
+    public CounterpartyEntity(String name, String street,
                               String houseNumber, String zipCode, String city,
                               String bankAccount) {
-        this.id = id;
         this.name = name;
         this.street = street;
         this.houseNumber = houseNumber;
@@ -44,13 +34,10 @@ public class CounterpartyEntity {
 
 
     // getters and setters
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -106,7 +93,9 @@ public class CounterpartyEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CounterpartyEntity that = (CounterpartyEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(street, that.street) && Objects.equals(houseNumber, that.houseNumber) && Objects.equals(zipCode, that.zipCode) && Objects.equals(city, that.city) && Objects.equals(bankAccount, that.bankAccount);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(street, that.street)
+                && Objects.equals(houseNumber, that.houseNumber) && Objects.equals(zipCode, that.zipCode)
+                && Objects.equals(city, that.city) && Objects.equals(bankAccount, that.bankAccount);
     }
 
     @Override

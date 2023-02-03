@@ -4,22 +4,12 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 public class InvoiceEntity {
     @Id
-    @SequenceGenerator(
-            name = "invoice_id_sequence",
-            sequenceName = "invoice_id_sequence",
-            allocationSize = 1
-    )
-
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "invoice_id_sequence"
-    )
-
-    private int id;
+    private UUID id = UUID.randomUUID();
     private String invoiceNumber;
     private LocalDate operationDate;
     private LocalDate issueDate;
@@ -31,9 +21,8 @@ public class InvoiceEntity {
     public InvoiceEntity() {
     }
 
-    public InvoiceEntity(int id, String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
+    public InvoiceEntity(String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
                          LocalDate accountingDate, int counterpartyId, int currencyId) {
-        this.id = id;
         this.invoiceNumber = invoiceNumber;
         this.operationDate = operationDate;
         this.issueDate = issueDate;
@@ -44,13 +33,10 @@ public class InvoiceEntity {
 
 
     // getters and setters
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getInvoiceNumber() {
         return invoiceNumber;
@@ -107,7 +93,9 @@ public class InvoiceEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceEntity that = (InvoiceEntity) o;
-        return id == that.id && counterpartyId == that.counterpartyId && currencyId == that.currencyId && invoiceNumber.equals(that.invoiceNumber) && operationDate.equals(that.operationDate) && issueDate.equals(that.issueDate) && Objects.equals(accountingDate, that.accountingDate);
+        return id == that.id && counterpartyId == that.counterpartyId && currencyId == that.currencyId
+                && invoiceNumber.equals(that.invoiceNumber) && operationDate.equals(that.operationDate)
+                && issueDate.equals(that.issueDate) && Objects.equals(accountingDate, that.accountingDate);
     }
 
     @Override
