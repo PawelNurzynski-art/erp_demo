@@ -14,21 +14,23 @@ public class InvoiceEntity {
     private LocalDate operationDate;
     private LocalDate issueDate;
     private LocalDate accountingDate;
-    private int counterpartyId; // from CounterpartyEntity
-    private int currencyId; // from CurrencyEntity
+    private String counterpartyId; // from CounterpartyEntity
+    private String currencyId; // from CurrencyEntity
+    private String itemsId; // form ItemEntity
 
     // constructors
     public InvoiceEntity() {
     }
 
     public InvoiceEntity(String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
-                         LocalDate accountingDate, int counterpartyId, int currencyId) {
+                         LocalDate accountingDate, String counterpartyId, String currencyId, String itemsId) {
         this.invoiceNumber = invoiceNumber;
         this.operationDate = operationDate;
         this.issueDate = issueDate;
         this.accountingDate = accountingDate;
         this.counterpartyId = counterpartyId;
         this.currencyId = currencyId;
+        this.itemsId = itemsId;
     }
 
 
@@ -70,22 +72,29 @@ public class InvoiceEntity {
         this.accountingDate = accountingDate;
     }
 
-    public int getCounterpartyId() {
+    public String getCounterpartyId() {
         return counterpartyId;
     }
 
-    public void setCounterpartyId(int counterpartyId) {
+    public void setCounterpartyId(String counterpartyId) {
         this.counterpartyId = counterpartyId;
     }
 
-    public int getCurrencyId() {
+    public String getCurrencyId() {
         return currencyId;
     }
 
-    public void setCurrencyId(int currencyId) {
+    public void setCurrencyId(String currencyId) {
         this.currencyId = currencyId;
     }
 
+    public String getItemsId() {
+        return itemsId;
+    }
+
+    public void setItemsId(String itemsId) {
+        this.itemsId = itemsId;
+    }
 
     // equals and hashCode
     @Override
