@@ -5,21 +5,32 @@ import com.erp_demo.repository.CounterpartyRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/counterparty")
 public class CounterpartyController {
-    public CounterpartyRepository counterPartyRepository;
+    public CounterpartyRepository counterpartyRepository;
 
-    public CounterpartyController(CounterpartyRepository counterPartyRepository) {
-        this.counterPartyRepository = counterPartyRepository;
+    public CounterpartyController(CounterpartyRepository counterpartyRepository) {
+        this.counterpartyRepository = counterpartyRepository;
     }
 
-    // displaying all counterParty
+    // displaying all counterparty
     @GetMapping("")
-    public List<CounterpartyEntity> getCounterParty() {
-        return counterPartyRepository.findAll();
+    public List<CounterpartyEntity> getAllCounterparty() {
+        return counterpartyRepository.findAll();
     }
+
+
+    // displaying counterparty chosen by id
+    @GetMapping("/{id}")
+    public Optional<CounterpartyEntity> getCounterparty(@PathVariable("id") UUID id) {
+        return counterpartyRepository.findById(id);
+    }
+
+
 
     // adding new counterParty
     // template
@@ -34,25 +45,25 @@ public class CounterpartyController {
 
     // adding new counterParty to database
     @PostMapping("")
-    public CounterpartyEntity addCounterParty(@RequestBody NewCounterPartyRequest request) {
-        CounterpartyEntity counterParty = new CounterpartyEntity();
+    public CounterpartyEntity addCounterparty(@RequestBody NewCounterPartyRequest request) {
+        CounterpartyEntity counterparty = new CounterpartyEntity();
 
-        counterParty.setName(request.name);
-        counterParty.setStreet(request.street);
-        counterParty.setHouseNumber(request.houseNumber);
-        counterParty.setZipCode(request.zipCode);
-        counterParty.setCity(request.city);
-        counterParty.setBankAccount(request.bankAccount);
+        counterparty.setName(request.name);
+        counterparty.setStreet(request.street);
+        counterparty.setHouseNumber(request.houseNumber);
+        counterparty.setZipCode(request.zipCode);
+        counterparty.setCity(request.city);
+        counterparty.setBankAccount(request.bankAccount);
 
-        counterPartyRepository.save(counterParty);
-        return counterParty;
+        counterpartyRepository.save(counterparty);
+        return counterparty;
     }
 
 
     // delete counterParty from database
-    @DeleteMapping("/delete/{id}")
-    public void deleteCounterParty(@PathVariable("id") Integer id) {
-        counterPartyRepository.deleteById(id);
+    @DeleteMapping("/{id}")
+    public void deleteCounterparty(@PathVariable("id") UUID id) {
+        counterpartyRepository.deleteById(id);
     }
 
 
@@ -68,19 +79,19 @@ public class CounterpartyController {
     ) {}
 
     // update data in database
-    @PutMapping("/update/{id}")
-    public void updateCounterParty(@PathVariable("id") Integer id,
-                                 @RequestBody UpdateCounterPartyRequest request) {
-        CounterpartyEntity counterParty = counterPartyRepository.getById(id);
+    @PutMapping("/{id}")
+    public void updateCounterparty(@PathVariable("id") UUID id,
+                                   @RequestBody UpdateCounterPartyRequest request) {
+        CounterpartyEntity counterparty = counterpartyRepository.getById(id);
 
-        counterParty.setName(request.name);
-        counterParty.setStreet(request.street);
-        counterParty.setHouseNumber(request.houseNumber);
-        counterParty.setZipCode(request.zipCode);
-        counterParty.setCity(request.city);
-        counterParty.setBankAccount(request.bankAccount);
+        counterparty.setName(request.name);
+        counterparty.setStreet(request.street);
+        counterparty.setHouseNumber(request.houseNumber);
+        counterparty.setZipCode(request.zipCode);
+        counterparty.setCity(request.city);
+        counterparty.setBankAccount(request.bankAccount);
 
-        counterPartyRepository.save(counterParty);
+        counterpartyRepository.save(counterparty);
     }
 
 }
