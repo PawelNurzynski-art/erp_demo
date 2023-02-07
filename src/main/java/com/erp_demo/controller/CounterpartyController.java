@@ -31,22 +31,10 @@ public class CounterpartyController {
         return counterpartyRepository.findById(id);
     }
 
-
-
-    // adding new counterParty
-    // template
-//    record NewCounterPartyRequest(
-//            String name,
-//            String street,
-//            String houseNumber,
-//            String zipCode,
-//            String city,
-//            String bankAccount
-//    ) {}
-
+    // for add and update counterparty
     CounterpartyDTO newCounterparty = new CounterpartyDTO();
 
-    // adding new counterParty to database
+    // adding new counterparty
     @PostMapping("")
     public CounterpartyEntity addCounterparty(@RequestBody CounterpartyDTO newCounterparty) {
         CounterpartyEntity counterparty = new CounterpartyEntity();
@@ -63,25 +51,14 @@ public class CounterpartyController {
     }
 
 
-    // delete counterParty from database
+    // delete counterparty
     @DeleteMapping("/{id}")
     public void deleteCounterparty(@PathVariable("id") UUID id) {
         counterpartyRepository.deleteById(id);
     }
 
 
-    // update the contractor
-    // template
-//    record UpdateCounterPartyRequest(
-//            String name,
-//            String street,
-//            String houseNumber,
-//            String zipCode,
-//            String city,
-//            String bankAccount
-//    ) {}
-
-    // update data in database
+    // update the counterparty
     @PutMapping("/{id}")
     public void updateCounterparty(@PathVariable("id") UUID id,
                                    @RequestBody CounterpartyDTO newCounterparty) {

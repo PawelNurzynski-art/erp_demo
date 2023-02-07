@@ -1,5 +1,6 @@
 package com.erp_demo.controller;
 
+import com.erp_demo.dto.ProductDTO;
 import com.erp_demo.entity.ProductEntity;
 import com.erp_demo.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
@@ -34,26 +35,19 @@ public class ProductController {
         return productRepository.findById(id);
     }
 
-
-    record NewProductRequest(
-            String brand,
-            String category,
-            String definitionState, // 1 - new, 2 - approved, 3 - canceled, 4 - archival
-            String measureUnit,
-            String description
-    ) {}
-
+    // for add and update product
+    ProductDTO newProduct = new ProductDTO();
 
     // add new product
     @PostMapping("")
-    public ProductEntity addProduct(@RequestBody NewProductRequest request) {
+    public ProductEntity addProduct(@RequestBody ProductDTO newProduct) {
         ProductEntity product = new ProductEntity();
 
-        product.setBrand(request.brand);
-        product.setCategory(request.category);
-        product.setDefinitionState(request.definitionState);
-        product.setMeasureUnit(request.measureUnit);
-        product.setDescription(request.description);
+        product.setBrand(newProduct.getBrand());
+        product.setCategory(newProduct.getCategory());
+        product.setDefinitionState(newProduct.getDefinitionState());
+        product.setMeasureUnit(newProduct.getMeasureUnit());
+        product.setDescription(newProduct.getDescription());
 
         productRepository.save(product);
         return product;
@@ -68,14 +62,14 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public void ProductEntity(@PathVariable("id") UUID id,
-                              @RequestBody NewProductRequest request) {
+                              @RequestBody ProductDTO newProduct) {
         ProductEntity product = productRepository.getById(id);
 
-        product.setBrand(request.brand);
-        product.setCategory(request.category);
-        product.setDefinitionState(request.definitionState);
-        product.setMeasureUnit(request.measureUnit);
-        product.setDescription(request.description);
+        product.setBrand(newProduct.getBrand());
+        product.setCategory(newProduct.getCategory());
+        product.setDefinitionState(newProduct.getDefinitionState());
+        product.setMeasureUnit(newProduct.getMeasureUnit());
+        product.setDescription(newProduct.getDescription());
 
         productRepository.save(product);
     }
