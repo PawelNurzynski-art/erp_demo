@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "63977dec-098c-4bc4-bfa7-5cf72fbe4fc6",
+		"_postman_id": "a9aa12ca-14d8-4774-b397-10081099f6d8",
 		"name": "erp_demo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,7 +9,7 @@
 			"name": "CounterParty",
 			"item": [
 				{
-					"name": "get all counterParties",
+					"name": "get all counterparties",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -28,7 +28,27 @@
 					"response": []
 				},
 				{
-					"name": "add new counterParty",
+					"name": "get counterparty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/counterparty/2bc76608-91f9-451c-a0ef-140a0942921a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"counterparty",
+								"2bc76608-91f9-451c-a0ef-140a0942921a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new counterparty",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -56,12 +76,12 @@
 					"response": []
 				},
 				{
-					"name": "delete counterParty",
+					"name": "delete counterparty",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/counterparty/delete/4",
+							"raw": "http://localhost:8080/counterparty/2bc76608-91f9-451c-a0ef-140a0942921a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -69,15 +89,14 @@
 							"port": "8080",
 							"path": [
 								"counterparty",
-								"delete",
-								"4"
+								"2bc76608-91f9-451c-a0ef-140a0942921a"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update counterParty",
+					"name": "update counterparty",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -91,7 +110,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/counterparty/update/5",
+							"raw": "http://localhost:8080/counterparty/e6bf65c2-dc61-4a7e-b38a-ed0fbcabf2b7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -99,8 +118,7 @@
 							"port": "8080",
 							"path": [
 								"counterparty",
-								"update",
-								"5"
+								"e6bf65c2-dc61-4a7e-b38a-ed0fbcabf2b7"
 							]
 						}
 					},
@@ -109,35 +127,55 @@
 			]
 		},
 		{
-			"name": "Good",
+			"name": "Product",
 			"item": [
 				{
-					"name": "get all goods",
+					"name": "get all products",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/good",
+							"raw": "http://localhost:8080/product",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good"
+								"product"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "add new good",
+					"name": "get product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/6709eae2-4446-4b5d-93ba-78074ae09433",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"6709eae2-4446-4b5d-93ba-78074ae09433"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new product",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"towar 1\",\r\n    \"measureUnit\": \"kg\",\r\n    \"purchasePrice\": 100.56,\r\n    \"margin\": 0.2,\r\n    \"definitionState\": 1,\r\n    \"description\": \"This is new good. Adding to test new entity.\"\r\n}",
+							"raw": "{\r\n    \"brand\" : \"Ford\",\r\n    \"category\" : \"car\",\r\n    \"definitionState\" : \"new\",\r\n    \"measureUnit\" : \"szt.\",\r\n    \"description\" : \"This is test product.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -145,48 +183,47 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/good",
+							"raw": "http://localhost:8080/product",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good"
+								"product"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "delete good",
+					"name": "delete product",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/good/delete/1",
+							"raw": "http://localhost:8080/product/6709eae2-4446-4b5d-93ba-78074ae09433",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good",
-								"delete",
-								"1"
+								"product",
+								"6709eae2-4446-4b5d-93ba-78074ae09433"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update good",
+					"name": "update product",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"towar 24\",\r\n    \"measureUnit\": \"szt\",\r\n    \"purchasePrice\": 1000.78,\r\n    \"margin\": 0.5,\r\n    \"definitionState\": 2,\r\n    \"description\": \"This is approved good. Testing updating.\"\r\n}",
+							"raw": "{\r\n    \"brand\" : \"xxxxxxxxxxxx\",\r\n    \"category\" : \"xxxxxxxxxxxxx\",\r\n    \"definitionState\" : \"xxxxxxxxxxx\",\r\n    \"measureUnit\" : \"szt.\",\r\n    \"description\" : \"This is test product.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -194,16 +231,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/good/update/2",
+							"raw": "http://localhost:8080/product/f4b72eae-9dc3-408d-98e4-4981b842aea5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good",
-								"update",
-								"2"
+								"product",
+								"f4b72eae-9dc3-408d-98e4-4981b842aea5"
 							]
 						}
 					},
@@ -212,35 +248,55 @@
 			]
 		},
 		{
-			"name": "GoodStorage",
+			"name": "Item",
 			"item": [
 				{
-					"name": "get all goods in storage",
+					"name": "get all items",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/good-storage",
+							"raw": "http://localhost:8080/item",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good-storage"
+								"item"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "add good to storage",
+					"name": "get item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/item/964e42c6-55b7-4241-abcb-fd5139cfc6ec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"item",
+								"964e42c6-55b7-4241-abcb-fd5139cfc6ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add item",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"goodId\": 1,\n    \"supplierId\": 1,\n    \"quantity\": 99.99,\n    \"goodBatch\": \"2022-01\",\n    \"invoiceId\": 1\n}",
+							"raw": "{\r\n    \"productId\" : \"27daafb8-0237-4941-a7b8-61913285c8cb\",\r\n    \"price\" : 1234.45\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -248,65 +304,34 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/good-storage",
+							"raw": "http://localhost:8080/item",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good-storage"
+								"item"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "delete good in storage",
+					"name": "delete item",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/good-storage/delete/1",
+							"raw": "http://localhost:8080/item/964e42c6-55b7-4241-abcb-fd5139cfc6ec",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"good-storage",
-								"delete",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update good in storage",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"goodId\": 99,\n    \"supplierId\": 99,\n    \"quantity\": 999.99,\n    \"goodBatch\": \"2022-01\",\n    \"invoiceId\": 99\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/good-storage/update/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"good-storage",
-								"update",
-								"2"
+								"item",
+								"964e42c6-55b7-4241-abcb-fd5139cfc6ec"
 							]
 						}
 					},
@@ -337,13 +362,33 @@
 					"response": []
 				},
 				{
+					"name": "get invoice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/invoice/d1c9eeee-0376-4702-b981-c0fa38823598",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"invoice",
+								"d1c9eeee-0376-4702-b981-c0fa38823598"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "add invoice",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"invoiceNumber\": \"INV/2023/01/0001\",\n    \"operationDate\": \"2023-01-18\",\n    \"issueDate\": \"2023-01-18\",\n    \"accountingDate\": \"2023-01-18\",\n    \"counterpartyId\": 1,\n    \"currencyId\": 1\n}",
+							"raw": "{\n    \"invoiceNumber\": \"INV/2023/01/0001\",\n    \"operationDate\": \"2023-01-18\",\n    \"issueDate\": \"2023-01-18\",\n    \"accountingDate\": \"2023-01-18\",\n    \"counterpartyId\": 1,\n    \"itemsId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -370,7 +415,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/invoice/delete/1",
+							"raw": "http://localhost:8080/invoice/d1c9eeee-0376-4702-b981-c0fa38823598",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -378,141 +423,7 @@
 							"port": "8080",
 							"path": [
 								"invoice",
-								"delete",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update invoice",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"invoiceNumber\": \"INV/2023/02/0002\",\n    \"operationDate\": \"2023-02-01\",\n    \"issueDate\": \"2023-02-01\",\n    \"accountingDate\": \"2023-02-01\",\n    \"counterpartyId\": 2,\n    \"currencyId\": 2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/invoice/update/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"invoice",
-								"update",
-								"2"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Currency",
-			"item": [
-				{
-					"name": "get all currencies",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/currency",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"currency"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "add currency",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"currencyName\": \"U.S. dollar\",\n    \"currencyAbbreviation\": \"USD\",\n    \"currencyState\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/currency",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"currency"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete currency",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/currency/delete/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"currency",
-								"delete",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update currency",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"currencyName\": \"EURO\",\n    \"currencyAbbreviation\": \"EUR\",\n    \"currencyState\": 2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/currency/update/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"currency",
-								"update",
-								"2"
+								"d1c9eeee-0376-4702-b981-c0fa38823598"
 							]
 						}
 					},
