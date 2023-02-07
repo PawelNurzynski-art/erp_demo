@@ -31,7 +31,7 @@ public class CounterpartyController {
         return counterpartyRepository.findById(id);
     }
 
-    // for add and update counterparty
+    // to add and update counterparty
     CounterpartyDTO newCounterparty = new CounterpartyDTO();
 
     // adding new counterparty

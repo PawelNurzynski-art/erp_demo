@@ -35,7 +35,7 @@ public class ProductController {
         return productRepository.findById(id);
     }
 
-    // for add and update product
+    // to add and update product
     ProductDTO newProduct = new ProductDTO();
 
     // add new product
