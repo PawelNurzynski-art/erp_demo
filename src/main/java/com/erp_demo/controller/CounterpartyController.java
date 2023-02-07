@@ -1,5 +1,6 @@
 package com.erp_demo.controller;
 
+import com.erp_demo.dto.CounterpartyDTO;
 import com.erp_demo.entity.CounterpartyEntity;
 import com.erp_demo.repository.CounterpartyRepository;
 import org.springframework.web.bind.annotation.*;
@@ -34,26 +35,28 @@ public class CounterpartyController {
 
     // adding new counterParty
     // template
-    record NewCounterPartyRequest(
-            String name,
-            String street,
-            String houseNumber,
-            String zipCode,
-            String city,
-            String bankAccount
-    ) {}
+//    record NewCounterPartyRequest(
+//            String name,
+//            String street,
+//            String houseNumber,
+//            String zipCode,
+//            String city,
+//            String bankAccount
+//    ) {}
+
+    CounterpartyDTO newCounterparty = new CounterpartyDTO();
 
     // adding new counterParty to database
     @PostMapping("")
-    public CounterpartyEntity addCounterparty(@RequestBody NewCounterPartyRequest request) {
+    public CounterpartyEntity addCounterparty(@RequestBody CounterpartyDTO newCounterparty) {
         CounterpartyEntity counterparty = new CounterpartyEntity();
 
-        counterparty.setName(request.name);
-        counterparty.setStreet(request.street);
-        counterparty.setHouseNumber(request.houseNumber);
-        counterparty.setZipCode(request.zipCode);
-        counterparty.setCity(request.city);
-        counterparty.setBankAccount(request.bankAccount);
+        counterparty.setName(newCounterparty.getName());
+        counterparty.setStreet(newCounterparty.getStreet());
+        counterparty.setHouseNumber(newCounterparty.getHouseNumber());
+        counterparty.setZipCode(newCounterparty.getZipCode());
+        counterparty.setCity(newCounterparty.getCity());
+        counterparty.setBankAccount(newCounterparty.getBankAccount());
 
         counterpartyRepository.save(counterparty);
         return counterparty;
@@ -69,27 +72,27 @@ public class CounterpartyController {
 
     // update the contractor
     // template
-    record UpdateCounterPartyRequest(
-            String name,
-            String street,
-            String houseNumber,
-            String zipCode,
-            String city,
-            String bankAccount
-    ) {}
+//    record UpdateCounterPartyRequest(
+//            String name,
+//            String street,
+//            String houseNumber,
+//            String zipCode,
+//            String city,
+//            String bankAccount
+//    ) {}
 
     // update data in database
     @PutMapping("/{id}")
     public void updateCounterparty(@PathVariable("id") UUID id,
-                                   @RequestBody UpdateCounterPartyRequest request) {
+                                   @RequestBody CounterpartyDTO newCounterparty) {
         CounterpartyEntity counterparty = counterpartyRepository.getById(id);
 
-        counterparty.setName(request.name);
-        counterparty.setStreet(request.street);
-        counterparty.setHouseNumber(request.houseNumber);
-        counterparty.setZipCode(request.zipCode);
-        counterparty.setCity(request.city);
-        counterparty.setBankAccount(request.bankAccount);
+        counterparty.setName(newCounterparty.getName());
+        counterparty.setStreet(newCounterparty.getStreet());
+        counterparty.setHouseNumber(newCounterparty.getHouseNumber());
+        counterparty.setZipCode(newCounterparty.getZipCode());
+        counterparty.setCity(newCounterparty.getCity());
+        counterparty.setBankAccount(newCounterparty.getBankAccount());
 
         counterpartyRepository.save(counterparty);
     }
