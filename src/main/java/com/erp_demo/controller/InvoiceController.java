@@ -1,10 +1,10 @@
 package com.erp_demo.controller;
 
+import com.erp_demo.dto.InvoiceDTO;
 import com.erp_demo.entity.InvoiceEntity;
 import com.erp_demo.repository.InvoiceRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -32,28 +32,20 @@ public class InvoiceController {
         return invoiceRepository.findById(id);
     }
 
-    // add invoice
-    // template
-    record InvoiceRequest(
-            String invoiceNumber,
-            LocalDate operationDate,
-            LocalDate issueDate,
-            LocalDate accountingDate,
-            String counterpartyId, // from CounterpartyEntity
-            String itemsId
-    ) {}
+    // template to add invoice
+    InvoiceDTO newInvoice = new InvoiceDTO();
 
     // generate invoice (add)
     @PostMapping("")
-    public InvoiceEntity addInvoice(@RequestBody InvoiceRequest request) {
+    public InvoiceEntity addInvoice(@RequestBody InvoiceDTO newInvoice) {
         InvoiceEntity invoice = new InvoiceEntity();
 
-        invoice.setInvoiceNumber(request.invoiceNumber);
-        invoice.setOperationDate(request.operationDate);
-        invoice.setIssueDate(request.issueDate);
-        invoice.setAccountingDate(request.accountingDate);
-        invoice.setCounterpartyId(request.counterpartyId);
-        invoice.setItemsId(request.itemsId);
+        invoice.setInvoiceNumber(newInvoice.getInvoiceNumber());
+        invoice.setOperationDate(newInvoice.getOperationDate());
+        invoice.setIssueDate(newInvoice.getIssueDate());
+        invoice.setAccountingDate(newInvoice.getAccountingDate());
+        invoice.setCounterpartyId(newInvoice.getCounterpartyId());
+        invoice.setItemsId(newInvoice.getItemsId());
 
         invoiceRepository.save(invoice);
         return invoice;

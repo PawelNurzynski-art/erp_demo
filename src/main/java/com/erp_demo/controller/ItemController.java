@@ -35,7 +35,7 @@ public class ItemController {
     }
 
 
-    // to add item
+    // template to add item
     ItemDTO newItem = new ItemDTO();
 
     // add item
