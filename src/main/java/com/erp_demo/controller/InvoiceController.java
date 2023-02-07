@@ -40,7 +40,6 @@ public class InvoiceController {
             LocalDate issueDate,
             LocalDate accountingDate,
             String counterpartyId, // from CounterpartyEntity
-            String currencyId, // from CurrencyEntity
             String itemsId
     ) {}
 
@@ -54,7 +53,6 @@ public class InvoiceController {
         invoice.setIssueDate(request.issueDate);
         invoice.setAccountingDate(request.accountingDate);
         invoice.setCounterpartyId(request.counterpartyId);
-        invoice.setCurrencyId(request.currencyId);
         invoice.setItemsId(request.itemsId);
 
         invoiceRepository.save(invoice);

@@ -28,6 +28,10 @@ public class ItemEntity {
 
 
     // getters and setters
+    public UUID getId() {
+        return id;
+    }
+
     public String getProductId() {
         return productId;
     }

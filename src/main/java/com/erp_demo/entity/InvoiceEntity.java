@@ -1,12 +1,15 @@
 package com.erp_demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity
+@Table(name = "invoice")
 public class InvoiceEntity {
     @Id
     private UUID id = UUID.randomUUID();
@@ -15,7 +18,6 @@ public class InvoiceEntity {
     private LocalDate issueDate;
     private LocalDate accountingDate;
     private String counterpartyId; // from CounterpartyEntity
-    private String currencyId; // from CurrencyEntity
     private String itemsId; // form ItemEntity
 
     // constructors
@@ -23,13 +25,12 @@ public class InvoiceEntity {
     }
 
     public InvoiceEntity(String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
-                         LocalDate accountingDate, String counterpartyId, String currencyId, String itemsId) {
+                         LocalDate accountingDate, String counterpartyId, String itemsId) {
         this.invoiceNumber = invoiceNumber;
         this.operationDate = operationDate;
         this.issueDate = issueDate;
         this.accountingDate = accountingDate;
         this.counterpartyId = counterpartyId;
-        this.currencyId = currencyId;
         this.itemsId = itemsId;
     }
 
@@ -38,7 +39,6 @@ public class InvoiceEntity {
     public UUID getId() {
         return id;
     }
-
 
     public String getInvoiceNumber() {
         return invoiceNumber;
@@ -80,14 +80,6 @@ public class InvoiceEntity {
         this.counterpartyId = counterpartyId;
     }
 
-    public String getCurrencyId() {
-        return currencyId;
-    }
-
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
     public String getItemsId() {
         return itemsId;
     }
@@ -102,14 +94,15 @@ public class InvoiceEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceEntity that = (InvoiceEntity) o;
-        return id == that.id && counterpartyId == that.counterpartyId && currencyId == that.currencyId
-                && invoiceNumber.equals(that.invoiceNumber) && operationDate.equals(that.operationDate)
-                && issueDate.equals(that.issueDate) && Objects.equals(accountingDate, that.accountingDate);
+        return id.equals(that.id) && invoiceNumber.equals(that.invoiceNumber)
+                && operationDate.equals(that.operationDate) && issueDate.equals(that.issueDate)
+                && accountingDate.equals(that.accountingDate) && counterpartyId.equals(that.counterpartyId)
+                && itemsId.equals(that.itemsId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterpartyId, currencyId);
+        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterpartyId, itemsId);
     }
 
     // toString
@@ -122,7 +115,6 @@ public class InvoiceEntity {
                 ", issueDate=" + issueDate +
                 ", accountingDate=" + accountingDate +
                 ", counterpartyId=" + counterpartyId +
-                ", currencyId=" + currencyId +
                 '}';
     }
 }

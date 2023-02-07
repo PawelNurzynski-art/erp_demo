@@ -2,14 +2,16 @@ package com.erp_demo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity
+@Table(name = "counterparty")
 public class CounterpartyEntity {
     @Id
-    private UUID id;
+    private UUID id = UUID.randomUUID();
     private String name;
     private String street;
     private String houseNumber;
@@ -21,8 +23,7 @@ public class CounterpartyEntity {
     public CounterpartyEntity() {
     }
 
-    public CounterpartyEntity(String name, String street,
-                              String houseNumber, String zipCode, String city,
+    public CounterpartyEntity(String name, String street, String houseNumber, String zipCode, String city,
                               String bankAccount) {
         this.name = name;
         this.street = street;

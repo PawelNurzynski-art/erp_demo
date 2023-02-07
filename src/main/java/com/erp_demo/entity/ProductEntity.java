@@ -25,7 +25,6 @@ public class ProductEntity {
 
     public ProductEntity(String brand, String category, String definitionState,
                          String measureUnit, String description) {
-        this.id = id;
         this.brand = brand;
         this.category = category;
         this.definitionState = definitionState;
@@ -35,6 +34,10 @@ public class ProductEntity {
 
 
     // getters and setters
+    public UUID getId() {
+        return id;
+    }
+
     public String getBrand() {
         return brand;
     }
