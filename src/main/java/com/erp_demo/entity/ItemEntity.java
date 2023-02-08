@@ -1,9 +1,9 @@
 package com.erp_demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -13,7 +13,9 @@ public class ItemEntity {
 
     @Id
     private UUID id = UUID.randomUUID();
-    private String productId;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "item_id")
+    private List<ProductEntity> products = new ArrayList<>();
     private double price;
 
 
@@ -21,8 +23,8 @@ public class ItemEntity {
     public ItemEntity() {}
 
 
-    public ItemEntity(String productId, double price) {
-        this.productId = productId;
+    public ItemEntity(List<ProductEntity> products, double price) {
+        this.products = products;
         this.price = price;
     }
 
@@ -32,12 +34,12 @@ public class ItemEntity {
         return id;
     }
 
-    public String getProductId() {
-        return productId;
+    public List<ProductEntity> getProducts() {
+        return products;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setProducts(List<ProductEntity> products) {
+        this.products = products;
     }
 
     public double getPrice() {
@@ -48,28 +50,25 @@ public class ItemEntity {
         this.price = price;
     }
 
-
-    // equals and hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ItemEntity that = (ItemEntity) o;
-        return Double.compare(that.price, price) == 0 && id.equals(that.id) && productId.equals(that.productId);
+        ItemEntity item = (ItemEntity) o;
+        return Double.compare(item.price, price) == 0 && id.equals(item.id) && products.equals(item.products);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productId, price);
+        return Objects.hash(id, products, price);
     }
-
 
     // toString
     @Override
     public String toString() {
         return "ItemEntity{" +
                 "id=" + id +
-                ", productId='" + productId + '\'' +
+                ", products=" + products +
                 ", price=" + price +
                 '}';
     }

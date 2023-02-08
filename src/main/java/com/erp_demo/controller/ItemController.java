@@ -43,7 +43,7 @@ public class ItemController {
     public ItemEntity addItem(@RequestBody ItemDTO newItem) {
         ItemEntity item = new ItemEntity();
 
-        item.setProductId(newItem.getProductId());
+        item.setProducts(newItem.getProducts());
         item.setPrice(newItem.getPrice());
 
         itemRepository.save(item);
