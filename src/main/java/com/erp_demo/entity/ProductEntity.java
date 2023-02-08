@@ -1,9 +1,9 @@
 package com.erp_demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,7 +17,8 @@ public class ProductEntity {
     private String definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
     private String measureUnit;
     private String description;
-
+    @OneToMany(mappedBy = "products", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ItemEntity> items = new ArrayList<>();
 
     // constructors
     public ProductEntity() {}

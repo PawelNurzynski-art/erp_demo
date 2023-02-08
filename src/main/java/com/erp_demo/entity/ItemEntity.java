@@ -2,8 +2,6 @@ package com.erp_demo.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -13,9 +11,9 @@ public class ItemEntity {
 
     @Id
     private UUID id = UUID.randomUUID();
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "item_id")
-    private List<ProductEntity> products = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity products;
     private double price;
 
 
@@ -23,7 +21,7 @@ public class ItemEntity {
     public ItemEntity() {}
 
 
-    public ItemEntity(List<ProductEntity> products, double price) {
+    public ItemEntity(ProductEntity products, double price) {
         this.products = products;
         this.price = price;
     }
@@ -34,11 +32,11 @@ public class ItemEntity {
         return id;
     }
 
-    public List<ProductEntity> getProducts() {
+    public ProductEntity getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductEntity> products) {
+    public void setProducts(ProductEntity products) {
         this.products = products;
     }
 
