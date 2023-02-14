@@ -47,7 +47,7 @@ public class InvoiceController {
         invoice.setIssueDate(newInvoice.getIssueDate());
         invoice.setAccountingDate(newInvoice.getAccountingDate());
         invoice.setCounterparty(newInvoice.getCounterparty());
-        invoice.setItemsId(newInvoice.getItemsId());
+        invoice.setItem(newInvoice.getItem());
 
         invoiceRepository.save(invoice);
         return invoice;

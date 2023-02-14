@@ -18,20 +18,22 @@ public class InvoiceEntity {
     @ManyToOne
     @JoinColumn(name = "counterparty_id")
     private CounterpartyEntity counterparty; // from CounterpartyEntity
-    private String itemsId; // form ItemEntity
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private ItemEntity item; // form ItemEntity
 
     // constructors
     public InvoiceEntity() {
     }
 
     public InvoiceEntity(String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
-                         LocalDate accountingDate, CounterpartyEntity counterparty, String itemsId) {
+                         LocalDate accountingDate, CounterpartyEntity counterparty, ItemEntity item) {
         this.invoiceNumber = invoiceNumber;
         this.operationDate = operationDate;
         this.issueDate = issueDate;
         this.accountingDate = accountingDate;
         this.counterparty = counterparty;
-        this.itemsId = itemsId;
+        this.item = item;
     }
 
 
@@ -80,12 +82,12 @@ public class InvoiceEntity {
         this.counterparty = counterparty;
     }
 
-    public String getItemsId() {
-        return itemsId;
+    public ItemEntity getItem() {
+        return item;
     }
 
-    public void setItemsId(String itemsId) {
-        this.itemsId = itemsId;
+    public void setItem(ItemEntity item) {
+        this.item = item;
     }
 
     // equals and hashCode
@@ -97,12 +99,12 @@ public class InvoiceEntity {
         return id.equals(that.id) && invoiceNumber.equals(that.invoiceNumber)
                 && operationDate.equals(that.operationDate) && issueDate.equals(that.issueDate)
                 && accountingDate.equals(that.accountingDate) && counterparty.equals(that.counterparty)
-                && itemsId.equals(that.itemsId);
+                && item.equals(that.item);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterparty, itemsId);
+        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterparty, item);
     }
 
     // toString

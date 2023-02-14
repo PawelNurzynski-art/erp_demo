@@ -2,6 +2,8 @@ package com.erp_demo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -15,6 +17,8 @@ public class ItemEntity {
     @JoinColumn(name = "product_id")
     private ProductEntity product;
     private double price;
+    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<InvoiceEntity> invoices = new ArrayList<>();
 
 
     // constructors
@@ -24,6 +28,10 @@ public class ItemEntity {
     public ItemEntity(ProductEntity product, double price) {
         this.product = product;
         this.price = price;
+    }
+
+    public ItemEntity(String id) {
+        this.id = UUID.fromString(id);
     }
 
 

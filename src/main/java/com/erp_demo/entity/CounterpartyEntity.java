@@ -35,9 +35,9 @@ public class CounterpartyEntity {
         this.bankAccount = bankAccount;
     }
 
-//    public CounterpartyEntity(String id) {
-//        this.id = UUID.fromString(id);
-//    }
+    public CounterpartyEntity(String id) {
+        this.id = UUID.fromString(id);
+    }
 
 
     // getters and setters

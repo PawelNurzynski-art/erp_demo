@@ -1,6 +1,7 @@
 package com.erp_demo.dto;
 
 import com.erp_demo.entity.CounterpartyEntity;
+import com.erp_demo.entity.ItemEntity;
 
 import java.time.LocalDate;
 
@@ -11,7 +12,7 @@ public class InvoiceDto {
     private LocalDate issueDate;
     private LocalDate accountingDate;
     private CounterpartyEntity counterparty;
-    private String itemsId;
+    private ItemEntity item;
 
     // constructor
     public InvoiceDto() {}
@@ -57,11 +58,11 @@ public class InvoiceDto {
         this.counterparty = counterparty;
     }
 
-    public String getItemsId() {
-        return itemsId;
+    public ItemEntity getItem() {
+        return item;
     }
 
-    public void setItemsId(String itemsId) {
-        this.itemsId = itemsId;
+    public void setItem(ItemEntity item) {
+        this.item = item;
     }
 }
