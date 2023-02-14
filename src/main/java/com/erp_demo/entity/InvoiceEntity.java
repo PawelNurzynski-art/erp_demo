@@ -1,8 +1,6 @@
 package com.erp_demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -17,7 +15,9 @@ public class InvoiceEntity {
     private LocalDate operationDate;
     private LocalDate issueDate;
     private LocalDate accountingDate;
-    private String counterpartyId; // from CounterpartyEntity
+    @ManyToOne
+    @JoinColumn(name = "counterparty_id")
+    private CounterpartyEntity counterparty; // from CounterpartyEntity
     private String itemsId; // form ItemEntity
 
     // constructors
@@ -25,12 +25,12 @@ public class InvoiceEntity {
     }
 
     public InvoiceEntity(String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
-                         LocalDate accountingDate, String counterpartyId, String itemsId) {
+                         LocalDate accountingDate, CounterpartyEntity counterparty, String itemsId) {
         this.invoiceNumber = invoiceNumber;
         this.operationDate = operationDate;
         this.issueDate = issueDate;
         this.accountingDate = accountingDate;
-        this.counterpartyId = counterpartyId;
+        this.counterparty = counterparty;
         this.itemsId = itemsId;
     }
 
@@ -72,12 +72,12 @@ public class InvoiceEntity {
         this.accountingDate = accountingDate;
     }
 
-    public String getCounterpartyId() {
-        return counterpartyId;
+    public CounterpartyEntity getCounterparty() {
+        return counterparty;
     }
 
-    public void setCounterpartyId(String counterpartyId) {
-        this.counterpartyId = counterpartyId;
+    public void setCounterparty(CounterpartyEntity counterparty) {
+        this.counterparty = counterparty;
     }
 
     public String getItemsId() {
@@ -96,13 +96,13 @@ public class InvoiceEntity {
         InvoiceEntity that = (InvoiceEntity) o;
         return id.equals(that.id) && invoiceNumber.equals(that.invoiceNumber)
                 && operationDate.equals(that.operationDate) && issueDate.equals(that.issueDate)
-                && accountingDate.equals(that.accountingDate) && counterpartyId.equals(that.counterpartyId)
+                && accountingDate.equals(that.accountingDate) && counterparty.equals(that.counterparty)
                 && itemsId.equals(that.itemsId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterpartyId, itemsId);
+        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterparty, itemsId);
     }
 
     // toString
@@ -114,7 +114,7 @@ public class InvoiceEntity {
                 ", operationDate=" + operationDate +
                 ", issueDate=" + issueDate +
                 ", accountingDate=" + accountingDate +
-                ", counterpartyId=" + counterpartyId +
+                ", counterpartyId=" + counterparty +
                 '}';
     }
 }

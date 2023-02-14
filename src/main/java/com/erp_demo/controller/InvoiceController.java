@@ -2,6 +2,7 @@ package com.erp_demo.controller;
 
 import com.erp_demo.dto.InvoiceDto;
 import com.erp_demo.entity.InvoiceEntity;
+import com.erp_demo.repository.CounterpartyRepository;
 import com.erp_demo.repository.InvoiceRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
 @RequestMapping("/invoice")
 public class InvoiceController {
     public InvoiceRepository invoiceRepository;
+    public CounterpartyRepository counterpartyRepository;
 
     // constructor
     public InvoiceController(InvoiceRepository invoiceRepository) {
@@ -44,7 +46,7 @@ public class InvoiceController {
         invoice.setOperationDate(newInvoice.getOperationDate());
         invoice.setIssueDate(newInvoice.getIssueDate());
         invoice.setAccountingDate(newInvoice.getAccountingDate());
-        invoice.setCounterpartyId(newInvoice.getCounterpartyId());
+        invoice.setCounterparty(newInvoice.getCounterparty());
         invoice.setItemsId(newInvoice.getItemsId());
 
         invoiceRepository.save(invoice);

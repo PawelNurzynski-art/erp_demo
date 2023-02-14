@@ -1,9 +1,9 @@
 package com.erp_demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,6 +18,8 @@ public class CounterpartyEntity {
     private String zipCode;
     private String city;
     private String bankAccount;
+    @OneToMany(mappedBy = "counterparty", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<InvoiceEntity> invoices = new ArrayList<>();
 
     // constructors
     public CounterpartyEntity() {
@@ -32,6 +34,10 @@ public class CounterpartyEntity {
         this.city = city;
         this.bankAccount = bankAccount;
     }
+
+//    public CounterpartyEntity(String id) {
+//        this.id = UUID.fromString(id);
+//    }
 
 
     // getters and setters
