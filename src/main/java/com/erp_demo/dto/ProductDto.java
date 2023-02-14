@@ -1,6 +1,6 @@
 package com.erp_demo.dto;
 
-public class ProductDTO {
+public class ProductDto {
 
     private String brand;
     private String category;
@@ -9,7 +9,7 @@ public class ProductDTO {
     private String description;
 
     // constructor
-    public ProductDTO() {}
+    public ProductDto() {}
 
     // getters and setters
     public String getBrand() {

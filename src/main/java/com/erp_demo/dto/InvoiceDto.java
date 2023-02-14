@@ -2,7 +2,7 @@ package com.erp_demo.dto;
 
 import java.time.LocalDate;
 
-public class InvoiceDTO {
+public class InvoiceDto {
 
     private String invoiceNumber;
     private LocalDate operationDate;
@@ -12,7 +12,7 @@ public class InvoiceDTO {
     private String itemsId;
 
     // constructor
-    public InvoiceDTO() {}
+    public InvoiceDto() {}
 
     // getters and setters
     public String getInvoiceNumber() {

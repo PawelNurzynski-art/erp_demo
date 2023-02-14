@@ -13,7 +13,7 @@ public class ItemEntity {
     private UUID id = UUID.randomUUID();
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private ProductEntity products;
+    private String product;
     private double price;
 
 
@@ -21,8 +21,8 @@ public class ItemEntity {
     public ItemEntity() {}
 
 
-    public ItemEntity(ProductEntity products, double price) {
-        this.products = products;
+    public ItemEntity(String product, double price) {
+        this.product = product;
         this.price = price;
     }
 
@@ -32,12 +32,12 @@ public class ItemEntity {
         return id;
     }
 
-    public ProductEntity getProducts() {
-        return products;
+    public String getProduct() {
+        return product;
     }
 
-    public void setProducts(ProductEntity products) {
-        this.products = products;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public double getPrice() {
@@ -53,12 +53,12 @@ public class ItemEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemEntity item = (ItemEntity) o;
-        return Double.compare(item.price, price) == 0 && id.equals(item.id) && products.equals(item.products);
+        return Double.compare(item.price, price) == 0 && id.equals(item.id) && product.equals(item.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, products, price);
+        return Objects.hash(id, product, price);
     }
 
     // toString
@@ -66,7 +66,7 @@ public class ItemEntity {
     public String toString() {
         return "ItemEntity{" +
                 "id=" + id +
-                ", products=" + products +
+                ", products=" + product +
                 ", price=" + price +
                 '}';
     }

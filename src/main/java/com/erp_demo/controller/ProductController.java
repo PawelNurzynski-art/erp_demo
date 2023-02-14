@@ -1,6 +1,6 @@
 package com.erp_demo.controller;
 
-import com.erp_demo.dto.ProductDTO;
+import com.erp_demo.dto.ProductDto;
 import com.erp_demo.entity.ProductEntity;
 import com.erp_demo.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
@@ -36,11 +36,11 @@ public class ProductController {
     }
 
     // template to add and update product
-    ProductDTO newProduct = new ProductDTO();
+    ProductDto newProduct = new ProductDto();
 
     // add new product
     @PostMapping("")
-    public ProductEntity addProduct(@RequestBody ProductDTO newProduct) {
+    public ProductEntity addProduct(@RequestBody ProductDto newProduct) {
         ProductEntity product = new ProductEntity();
 
         product.setBrand(newProduct.getBrand());
@@ -62,7 +62,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public void ProductEntity(@PathVariable("id") UUID id,
-                              @RequestBody ProductDTO newProduct) {
+                              @RequestBody ProductDto newProduct) {
         ProductEntity product = productRepository.getById(id);
 
         product.setBrand(newProduct.getBrand());

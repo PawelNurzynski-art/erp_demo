@@ -1,6 +1,6 @@
 package com.erp_demo.controller;
 
-import com.erp_demo.dto.InvoiceDTO;
+import com.erp_demo.dto.InvoiceDto;
 import com.erp_demo.entity.InvoiceEntity;
 import com.erp_demo.repository.InvoiceRepository;
 import org.springframework.web.bind.annotation.*;
@@ -33,11 +33,11 @@ public class InvoiceController {
     }
 
     // template to add invoice
-    InvoiceDTO newInvoice = new InvoiceDTO();
+    InvoiceDto newInvoice = new InvoiceDto();
 
     // generate invoice (add)
     @PostMapping("")
-    public InvoiceEntity addInvoice(@RequestBody InvoiceDTO newInvoice) {
+    public InvoiceEntity addInvoice(@RequestBody InvoiceDto newInvoice) {
         InvoiceEntity invoice = new InvoiceEntity();
 
         invoice.setInvoiceNumber(newInvoice.getInvoiceNumber());

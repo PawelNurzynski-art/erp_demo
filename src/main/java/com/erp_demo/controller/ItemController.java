@@ -1,6 +1,6 @@
 package com.erp_demo.controller;
 
-import com.erp_demo.dto.ItemDTO;
+import com.erp_demo.dto.ItemDto;
 import com.erp_demo.entity.ItemEntity;
 import com.erp_demo.repository.ItemRepository;
 import org.springframework.web.bind.annotation.*;
@@ -36,14 +36,14 @@ public class ItemController {
 
 
     // template to add item
-    ItemDTO newItem = new ItemDTO();
+    ItemDto newItem = new ItemDto();
 
     // add item
     @PostMapping("")
-    public ItemEntity addItem(@RequestBody ItemDTO newItem) {
+    public ItemEntity addItem(@RequestBody ItemDto newItem) {
         ItemEntity item = new ItemEntity();
 
-        item.setProducts(newItem.getProducts());
+        item.setProduct(newItem.getProduct());
         item.setPrice(newItem.getPrice());
 
         itemRepository.save(item);

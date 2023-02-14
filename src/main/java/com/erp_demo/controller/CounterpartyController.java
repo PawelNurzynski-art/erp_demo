@@ -1,6 +1,6 @@
 package com.erp_demo.controller;
 
-import com.erp_demo.dto.CounterpartyDTO;
+import com.erp_demo.dto.CounterpartyDto;
 import com.erp_demo.entity.CounterpartyEntity;
 import com.erp_demo.repository.CounterpartyRepository;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +32,11 @@ public class CounterpartyController {
     }
 
     // template to add and update counterparty
-    CounterpartyDTO newCounterparty = new CounterpartyDTO();
+    CounterpartyDto newCounterparty = new CounterpartyDto();
 
     // adding new counterparty
     @PostMapping("")
-    public CounterpartyEntity addCounterparty(@RequestBody CounterpartyDTO newCounterparty) {
+    public CounterpartyEntity addCounterparty(@RequestBody CounterpartyDto newCounterparty) {
         CounterpartyEntity counterparty = new CounterpartyEntity();
 
         counterparty.setName(newCounterparty.getName());
@@ -61,7 +61,7 @@ public class CounterpartyController {
     // update the counterparty
     @PutMapping("/{id}")
     public void updateCounterparty(@PathVariable("id") UUID id,
-                                   @RequestBody CounterpartyDTO newCounterparty) {
+                                   @RequestBody CounterpartyDto newCounterparty) {
         CounterpartyEntity counterparty = counterpartyRepository.getById(id);
 
         counterparty.setName(newCounterparty.getName());

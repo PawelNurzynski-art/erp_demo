@@ -1,6 +1,6 @@
 package com.erp_demo.dto;
 
-public class CounterpartyDTO {
+public class CounterpartyDto {
 
     private String name;
     private String street;
@@ -11,7 +11,7 @@ public class CounterpartyDTO {
 
 
     // constructor
-    public CounterpartyDTO() {}
+    public CounterpartyDto() {}
 
 
     // getters and setters
