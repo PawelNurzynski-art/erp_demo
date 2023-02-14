@@ -17,7 +17,7 @@ public class ProductEntity {
     private String definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
     private String measureUnit;
     private String description;
-    @OneToMany(mappedBy = "products", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemEntity> items = new ArrayList<>();
 
     // constructors
@@ -33,6 +33,9 @@ public class ProductEntity {
         this.description = description;
     }
 
+    public ProductEntity(String id) {
+        this.id = UUID.fromString(id);
+    }
 
     // getters and setters
     public UUID getId() {

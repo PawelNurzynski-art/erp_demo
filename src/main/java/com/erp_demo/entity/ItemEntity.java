@@ -13,7 +13,7 @@ public class ItemEntity {
     private UUID id = UUID.randomUUID();
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private String product;
+    private ProductEntity product;
     private double price;
 
 
@@ -21,7 +21,7 @@ public class ItemEntity {
     public ItemEntity() {}
 
 
-    public ItemEntity(String product, double price) {
+    public ItemEntity(ProductEntity product, double price) {
         this.product = product;
         this.price = price;
     }
@@ -32,11 +32,11 @@ public class ItemEntity {
         return id;
     }
 
-    public String getProduct() {
+    public ProductEntity getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(ProductEntity product) {
         this.product = product;
     }
 

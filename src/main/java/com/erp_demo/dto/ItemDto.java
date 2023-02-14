@@ -1,19 +1,21 @@
 package com.erp_demo.dto;
 
+import com.erp_demo.entity.ProductEntity;
+
 public class ItemDto {
 
-    private String product;
+    private ProductEntity product;
     private double price;
 
     // constructor
     public ItemDto() {}
 
     // getters and setters
-    public String getProduct() {
+    public ProductEntity getProduct() {
         return product;
     }
 
-    public void setProductId(String product) {
+    public void setProductId(ProductEntity product) {
         this.product = product;
     }
 
