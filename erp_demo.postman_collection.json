@@ -296,7 +296,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"productId\" : \"a0eb2d04-fb0c-44bc-b08e-fda5924601ae\",\r\n    \"price\" : 9.45\r\n}",
+							"raw": "{\r\n    \"product\" : \"c8035a99-7467-49bc-bfac-d212c1450ed5\",\r\n    \"price\" : 9.45\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -388,7 +388,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"invoiceNumber\": \"INV/2023/01/0001\",\n    \"operationDate\": \"2023-01-18\",\n    \"issueDate\": \"2023-01-18\",\n    \"accountingDate\": \"2023-01-18\",\n    \"counterparty\": \"f33a4c90-3ae1-462c-88e5-bcae95b1ca20\",\n    \"item\": \"3b546335-ac38-4b3c-b2b6-2fa3d11821c8\"\n}",
+							"raw": "{\n    \"invoiceNumber\": \"INV/2023/01/0001\",\n    \"operationDate\": \"2023-01-18\",\n    \"issueDate\": \"2023-01-18\",\n    \"accountingDate\": \"2023-01-18\",\n    \"counterparty\": \"94f30608-1d2a-4ebb-846f-b9780ab93ac5\",\n    \"item\": \"d5eaa113-086f-42c3-ab3c-dd69301d06fd\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
