@@ -13,6 +13,7 @@ import java.util.UUID;
 @RequestMapping("/counterparty")
 public class CounterpartyController {
     public CounterpartyRepository counterpartyRepository;
+    public CounterpartyDto newCounterparty = new CounterpartyDto();
 
     public CounterpartyController(CounterpartyRepository counterpartyRepository) {
         this.counterpartyRepository = counterpartyRepository;
@@ -31,23 +32,21 @@ public class CounterpartyController {
         return counterpartyRepository.findById(id);
     }
 
-    // template to add and update counterparty
-    CounterpartyDto newCounterparty = new CounterpartyDto();
 
     // adding new counterparty
     @PostMapping("")
-    public CounterpartyEntity addCounterparty(@RequestBody CounterpartyDto newCounterparty) {
-        CounterpartyEntity counterparty = new CounterpartyEntity();
+    public CounterpartyEntity addCounterparty(@RequestBody CounterpartyDto counterpartyDto) {
+        CounterpartyEntity newCounterparty = new CounterpartyEntity();
 
-        counterparty.setName(newCounterparty.getName());
-        counterparty.setStreet(newCounterparty.getStreet());
-        counterparty.setHouseNumber(newCounterparty.getHouseNumber());
-        counterparty.setZipCode(newCounterparty.getZipCode());
-        counterparty.setCity(newCounterparty.getCity());
-        counterparty.setBankAccount(newCounterparty.getBankAccount());
+        newCounterparty.setName(counterpartyDto.getName());
+        newCounterparty.setStreet(counterpartyDto.getStreet());
+        newCounterparty.setHouseNumber(counterpartyDto.getHouseNumber());
+        newCounterparty.setZipCode(counterpartyDto.getZipCode());
+        newCounterparty.setCity(counterpartyDto.getCity());
+        newCounterparty.setBankAccount(counterpartyDto.getBankAccount());
 
-        counterpartyRepository.save(counterparty);
-        return counterparty;
+        counterpartyRepository.save(newCounterparty);
+        return newCounterparty;
     }
 
 
@@ -60,18 +59,19 @@ public class CounterpartyController {
 
     // update the counterparty
     @PutMapping("/{id}")
-    public void updateCounterparty(@PathVariable("id") UUID id,
-                                   @RequestBody CounterpartyDto newCounterparty) {
-        CounterpartyEntity counterparty = counterpartyRepository.getById(id);
+    public CounterpartyEntity updateCounterparty(@PathVariable("id") UUID id,
+                                   @RequestBody CounterpartyDto counterpartyDto) {
+        CounterpartyEntity editedCounterparty = counterpartyRepository.getById(id);
 
-        counterparty.setName(newCounterparty.getName());
-        counterparty.setStreet(newCounterparty.getStreet());
-        counterparty.setHouseNumber(newCounterparty.getHouseNumber());
-        counterparty.setZipCode(newCounterparty.getZipCode());
-        counterparty.setCity(newCounterparty.getCity());
-        counterparty.setBankAccount(newCounterparty.getBankAccount());
+        editedCounterparty.setName(counterpartyDto.getName());
+        editedCounterparty.setStreet(counterpartyDto.getStreet());
+        editedCounterparty.setHouseNumber(counterpartyDto.getHouseNumber());
+        editedCounterparty.setZipCode(counterpartyDto.getZipCode());
+        editedCounterparty.setCity(counterpartyDto.getCity());
+        editedCounterparty.setBankAccount(counterpartyDto.getBankAccount());
 
-        counterpartyRepository.save(counterparty);
+        counterpartyRepository.save(editedCounterparty);
+        return editedCounterparty;
     }
 
 }

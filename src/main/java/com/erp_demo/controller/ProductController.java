@@ -14,6 +14,7 @@ import java.util.UUID;
 public class ProductController {
 
     public ProductRepository productRepository;
+    public ProductDto newProduct = new ProductDto();
 
 
     // constructor
@@ -35,22 +36,19 @@ public class ProductController {
         return productRepository.findById(id);
     }
 
-    // template to add and update product
-    ProductDto newProduct = new ProductDto();
-
     // add new product
     @PostMapping("")
-    public ProductEntity addProduct(@RequestBody ProductDto newProduct) {
-        ProductEntity product = new ProductEntity();
+    public ProductEntity addProduct(@RequestBody ProductDto productDto) {
+        ProductEntity newProduct = new ProductEntity();
 
-        product.setBrand(newProduct.getBrand());
-        product.setCategory(newProduct.getCategory());
-        product.setDefinitionState(newProduct.getDefinitionState());
-        product.setMeasureUnit(newProduct.getMeasureUnit());
-        product.setDescription(newProduct.getDescription());
+        newProduct.setBrand(productDto.getBrand());
+        newProduct.setCategory(productDto.getCategory());
+        newProduct.setDefinitionState(productDto.getDefinitionState());
+        newProduct.setMeasureUnit(productDto.getMeasureUnit());
+        newProduct.setDescription(productDto.getDescription());
 
-        productRepository.save(product);
-        return product;
+        productRepository.save(newProduct);
+        return newProduct;
     }
 
 
@@ -61,16 +59,17 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public void ProductEntity(@PathVariable("id") UUID id,
-                              @RequestBody ProductDto newProduct) {
-        ProductEntity product = productRepository.getById(id);
+    public ProductEntity ProductEntity(@PathVariable("id") UUID id,
+                              @RequestBody ProductDto productDto) {
+        ProductEntity editedProduct = productRepository.getById(id);
 
-        product.setBrand(newProduct.getBrand());
-        product.setCategory(newProduct.getCategory());
-        product.setDefinitionState(newProduct.getDefinitionState());
-        product.setMeasureUnit(newProduct.getMeasureUnit());
-        product.setDescription(newProduct.getDescription());
+        editedProduct.setBrand(productDto.getBrand());
+        editedProduct.setCategory(productDto.getCategory());
+        editedProduct.setDefinitionState(productDto.getDefinitionState());
+        editedProduct.setMeasureUnit(productDto.getMeasureUnit());
+        editedProduct.setDescription(productDto.getDescription());
 
-        productRepository.save(product);
+        productRepository.save(editedProduct);
+        return editedProduct;
     }
 }

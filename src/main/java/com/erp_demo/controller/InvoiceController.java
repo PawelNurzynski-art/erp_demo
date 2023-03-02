@@ -15,6 +15,7 @@ import java.util.UUID;
 public class InvoiceController {
     public InvoiceRepository invoiceRepository;
     public CounterpartyRepository counterpartyRepository;
+    public InvoiceDto newInvoice = new InvoiceDto();
 
     // constructor
     public InvoiceController(InvoiceRepository invoiceRepository) {
@@ -33,9 +34,6 @@ public class InvoiceController {
     public Optional<InvoiceEntity> getInvoice(@PathVariable("id") UUID id) {
         return invoiceRepository.findById(id);
     }
-
-    // template to add invoice
-    InvoiceDto newInvoice = new InvoiceDto();
 
     // generate invoice (add)
     @PostMapping("")

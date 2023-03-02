@@ -28,27 +28,3 @@ Next to do:
 <li>liquibase scripts to load the database with data (developer profile)</li>
 <li>unit tests</li>
 </ul>
-
-
-
-
-<!--
-Problem with InvoiceController:
-<ul>
-<li>put: update invoice in database, but doesn't return JSON</li>
-<li>ERROR:<br>
-2023-01-18T19:23:13.075+01:00 ERROR 12851 --- [nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor]] with root cause
-</li>
-</ul>
-The same problem is with CUrrencyController.
--->
-
-
-<!--
-Doesn't work:
-<ul>
-<li>@PostMapping("")</li>
-<li>@DeleteMapping("/delete/{contractorId}")</li>
-<li>@PutMapping("/update/{contractorId}")</li>
-</ul>
--->

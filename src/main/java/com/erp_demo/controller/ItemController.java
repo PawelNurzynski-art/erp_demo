@@ -14,6 +14,7 @@ import java.util.UUID;
 public class ItemController {
 
     public ItemRepository itemRepository;
+    public ItemDto newItem = new ItemDto();
 
     // constructor
     public ItemController(ItemRepository itemRepository) {
@@ -34,9 +35,6 @@ public class ItemController {
         return itemRepository.findById(id);
     }
 
-
-    // template to add item
-    ItemDto newItem = new ItemDto();
 
     // add item
     @PostMapping("")
