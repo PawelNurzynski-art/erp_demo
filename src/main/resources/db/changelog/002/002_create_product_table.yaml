@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002_create_product_table
+      author: pawel
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: brand
+                  type: varchar(25)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: category
+                  type: varchar(25)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: definition_state
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: measure_unit
+                  type: varchar(5)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

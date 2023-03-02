@@ -16,7 +16,7 @@ public class ItemEntity {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity product;
-    private double price;
+    private Float price;
     @OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InvoiceEntity> invoices = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class ItemEntity {
     public ItemEntity() {}
 
 
-    public ItemEntity(ProductEntity product, double price) {
+    public ItemEntity(ProductEntity product, Float price) {
         this.product = product;
         this.price = price;
     }
@@ -48,11 +48,11 @@ public class ItemEntity {
         this.product = product;
     }
 
-    public double getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

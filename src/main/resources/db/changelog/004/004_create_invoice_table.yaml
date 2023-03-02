@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004_create_invoice_table
+      author: pawel
+      changes:
+        - createTable:
+            tableName: invoice
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: invoice_number
+                  type: varchar(25)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: operation_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: issue_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: accounting_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: counterparty_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: item_id
+                  type: uuid
+                  constraints:
+                    nullable: false

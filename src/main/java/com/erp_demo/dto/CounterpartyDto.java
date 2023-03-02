@@ -4,7 +4,7 @@ public class CounterpartyDto {
 
     private String name;
     private String street;
-    private String houseNumber;
+    private Integer houseNumber;
     private String zipCode;
     private String city;
     private String bankAccount;
@@ -31,11 +31,11 @@ public class CounterpartyDto {
         this.street = street;
     }
 
-    public String getHouseNumber() {
+    public Integer getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(String houseNumber) {
+    public void setHouseNumber(Integer houseNumber) {
         this.houseNumber = houseNumber;
     }
 

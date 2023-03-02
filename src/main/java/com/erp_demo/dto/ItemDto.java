@@ -5,7 +5,7 @@ import com.erp_demo.entity.ProductEntity;
 public class ItemDto {
 
     private ProductEntity product;
-    private double price;
+    private Float price;
 
     // constructor
     public ItemDto() {}
@@ -19,11 +19,11 @@ public class ItemDto {
         this.product = product;
     }
 
-    public double getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 }

@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002_create_counterparty_table
+      author: pawel
+      changes:
+        - createTable:
+            tableName: counterparty
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: street
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: house_number
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: zip_code
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: bankAccount
+                  type: varchar(30)
+                  constraints:
+                    nullable: false

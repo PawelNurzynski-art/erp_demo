@@ -14,7 +14,7 @@ public class CounterpartyEntity {
     private UUID id = UUID.randomUUID();
     private String name;
     private String street;
-    private String houseNumber;
+    private Integer houseNumber;
     private String zipCode;
     private String city;
     private String bankAccount;
@@ -25,7 +25,7 @@ public class CounterpartyEntity {
     public CounterpartyEntity() {
     }
 
-    public CounterpartyEntity(String name, String street, String houseNumber, String zipCode, String city,
+    public CounterpartyEntity(String name, String street, Integer houseNumber, String zipCode, String city,
                               String bankAccount) {
         this.name = name;
         this.street = street;
@@ -62,11 +62,11 @@ public class CounterpartyEntity {
         this.street = street;
     }
 
-    public String getHouseNumber() {
+    public Integer getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(String contractorHouseNumber) {
+    public void setHouseNumber(Integer contractorHouseNumber) {
         this.houseNumber = contractorHouseNumber;
     }
 

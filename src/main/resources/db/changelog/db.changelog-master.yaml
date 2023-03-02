@@ -1,4 +1,13 @@
-#databaseChangeLog:
-#  - include:
-#      relativeToChangelogFile: true
-#      file:
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: 001/001_create_counterparty_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 002/002_create_product_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 003/003_create_item_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 004/004_create_invoice_table.yaml
