@@ -1,10 +1,12 @@
 package com.erp_demo.dto;
 
+import com.erp_demo.enums.DefinitionState;
+
 public class ProductDto {
 
     private String brand;
     private String category;
-    private String definitionState;
+    private DefinitionState definitionState;
     private String measureUnit;
     private String description;
 
@@ -28,11 +30,11 @@ public class ProductDto {
         this.category = category;
     }
 
-    public String getDefinitionState() {
+    public DefinitionState getDefinitionState() {
         return definitionState;
     }
 
-    public void setDefinitionState(String definitionState) {
+    public void setDefinitionState(DefinitionState definitionState) {
         this.definitionState = definitionState;
     }
 

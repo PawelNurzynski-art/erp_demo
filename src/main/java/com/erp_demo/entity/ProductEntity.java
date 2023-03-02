@@ -1,5 +1,6 @@
 package com.erp_demo.entity;
 
+import com.erp_demo.enums.DefinitionState;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ public class ProductEntity {
     private UUID id = UUID.randomUUID();
     private String brand;
     private String category;
-    private String definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
+    @Enumerated(EnumType.STRING)
+    private DefinitionState definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
     private String measureUnit;
     private String description;
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -24,7 +26,7 @@ public class ProductEntity {
     public ProductEntity() {}
 
 
-    public ProductEntity(String brand, String category, String definitionState,
+    public ProductEntity(String brand, String category, DefinitionState definitionState,
                          String measureUnit, String description) {
         this.brand = brand;
         this.category = category;
@@ -58,11 +60,11 @@ public class ProductEntity {
         this.category = category;
     }
 
-    public String getDefinitionState() {
+    public DefinitionState getDefinitionState() {
         return definitionState;
     }
 
-    public void setDefinitionState(String definitionState) {
+    public void setDefinitionState(DefinitionState definitionState) {
         this.definitionState = definitionState;
     }
 
