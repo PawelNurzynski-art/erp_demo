@@ -16,6 +16,9 @@ public class ItemEntity {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity product;
+    private String color;
+    private Integer productionYear;
+    private Float engineCapacity;
     private Float price;
     @OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InvoiceEntity> invoices = new ArrayList<>();
@@ -25,9 +28,12 @@ public class ItemEntity {
     public ItemEntity() {}
 
 
-    public ItemEntity(ProductEntity product, Float price) {
+    public ItemEntity(ProductEntity product, Float price, String color, Integer productionYear, Float engineCapacity) {
         this.product = product;
         this.price = price;
+        this.color = color;
+        this.productionYear = productionYear;
+        this.engineCapacity = engineCapacity;
     }
 
     public ItemEntity(String id) {
@@ -56,26 +62,54 @@ public class ItemEntity {
         this.price = price;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Integer getProductionYear() {
+        return productionYear;
+    }
+
+    public void setProductionYear(Integer productionYear) {
+        this.productionYear = productionYear;
+    }
+
+    public Float getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(Float engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemEntity item = (ItemEntity) o;
-        return Double.compare(item.price, price) == 0 && id.equals(item.id) && product.equals(item.product);
+        return id.equals(item.id) && product.equals(item.product) && color.equals(item.color) && productionYear.equals(item.productionYear) && engineCapacity.equals(item.engineCapacity) && price.equals(item.price) && Objects.equals(invoices, item.invoices);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, product, price);
+        return Objects.hash(id, product, color, productionYear, engineCapacity, price, invoices);
     }
 
-    // toString
     @Override
     public String toString() {
         return "ItemEntity{" +
                 "id=" + id +
-                ", products=" + product +
+                ", product=" + product +
+                ", color='" + color + '\'' +
+                ", productionYear=" + productionYear +
+                ", engineCapacity=" + engineCapacity +
                 ", price=" + price +
                 '}';
     }
+
 }

@@ -4,8 +4,9 @@ import com.erp_demo.enums.DefinitionState;
 
 public class ProductDto {
 
-    private String brand;
     private String category;
+    private String brand;
+    private String model;
     private DefinitionState definitionState;
     private String measureUnit;
     private String description;
@@ -52,5 +53,13 @@ public class ProductDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

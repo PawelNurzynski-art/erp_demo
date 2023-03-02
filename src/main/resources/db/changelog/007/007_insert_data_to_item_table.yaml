@@ -1,39 +1,30 @@
 databaseChangeLog:
   - changeSet:
-      id: 003_create_item_table
+      id: 007_insert_data_to_item_table.yaml
       author: pawel
       changes:
-        - createTable:
+        - loadData:
+            file: 007/007_data_to_item_table.csv
+            relativeToChangelogFile: true
             tableName: item
+            encoding: UTF-8
+            separator: ','
             columns:
               - column:
                   name: id
                   type: uuid
-                  constraints:
-                    primaryKey: true
-                    nullable: false
               - column:
                   name: product_id
                   type: uuid
-                  constraints:
-                    nullable: false
               - column:
                   name: color
-                  type: varchar(17)
-                  constraints:
-                    nullable: false
+                  type: varchar(20)
               - column:
                   name: production_year
                   type: integer
-                  constraints:
-                    nullable: false
               - column:
                   name: engine_capacity
                   type: float
-                  constraints:
-                    nullable: false
               - column:
                   name: price
                   type: float
-                  constraints:
-                    nullable: false

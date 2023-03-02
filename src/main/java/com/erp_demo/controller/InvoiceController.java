@@ -41,6 +41,7 @@ public class InvoiceController {
         InvoiceEntity invoice = new InvoiceEntity();
 
         invoice.setInvoiceNumber(newInvoice.getInvoiceNumber());
+        invoice.setSaleDate(newInvoice.getSaleDate());
         invoice.setOperationDate(newInvoice.getOperationDate());
         invoice.setIssueDate(newInvoice.getIssueDate());
         invoice.setAccountingDate(newInvoice.getAccountingDate());

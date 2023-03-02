@@ -11,3 +11,15 @@ databaseChangeLog:
   - include:
       relativeToChangelogFile: true
       file: 004/004_create_invoice_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 005/005_insert_data_to_counterparty_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 006/006_insert_data_to_product_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 007/007_insert_data_to_item_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: 008/008_insert_data_to_invoice_table.yaml

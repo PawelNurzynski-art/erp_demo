@@ -8,6 +8,7 @@ import java.time.LocalDate;
 public class InvoiceDto {
 
     private String invoiceNumber;
+    private LocalDate saleDate;
     private LocalDate operationDate;
     private LocalDate issueDate;
     private LocalDate accountingDate;
@@ -64,5 +65,13 @@ public class InvoiceDto {
 
     public void setItem(ItemEntity item) {
         this.item = item;
+    }
+
+    public LocalDate getSaleDate() {
+        return saleDate;
+    }
+
+    public void setSaleDate(LocalDate saleDate) {
+        this.saleDate = saleDate;
     }
 }

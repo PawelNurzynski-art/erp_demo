@@ -12,6 +12,7 @@ public class InvoiceEntity {
     @Id
     private UUID id = UUID.randomUUID();
     private String invoiceNumber;
+    private LocalDate saleDate;
     private LocalDate operationDate;
     private LocalDate issueDate;
     private LocalDate accountingDate;
@@ -26,9 +27,10 @@ public class InvoiceEntity {
     public InvoiceEntity() {
     }
 
-    public InvoiceEntity(String invoiceNumber, LocalDate operationDate, LocalDate issueDate,
+    public InvoiceEntity(String invoiceNumber, LocalDate saleDate, LocalDate operationDate, LocalDate issueDate,
                          LocalDate accountingDate, CounterpartyEntity counterparty, ItemEntity item) {
         this.invoiceNumber = invoiceNumber;
+        this.saleDate = saleDate;
         this.operationDate = operationDate;
         this.issueDate = issueDate;
         this.accountingDate = accountingDate;
@@ -90,33 +92,37 @@ public class InvoiceEntity {
         this.item = item;
     }
 
-    // equals and hashCode
+    public LocalDate getSaleDate() {
+        return saleDate;
+    }
+
+    public void setSaleDate(LocalDate saleDate) {
+        this.saleDate = saleDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceEntity that = (InvoiceEntity) o;
-        return id.equals(that.id) && invoiceNumber.equals(that.invoiceNumber)
-                && operationDate.equals(that.operationDate) && issueDate.equals(that.issueDate)
-                && accountingDate.equals(that.accountingDate) && counterparty.equals(that.counterparty)
-                && item.equals(that.item);
+        return id.equals(that.id) && invoiceNumber.equals(that.invoiceNumber) && saleDate.equals(that.saleDate) && operationDate.equals(that.operationDate) && issueDate.equals(that.issueDate) && accountingDate.equals(that.accountingDate) && counterparty.equals(that.counterparty) && Objects.equals(item, that.item);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, invoiceNumber, operationDate, issueDate, accountingDate, counterparty, item);
+        return Objects.hash(id, invoiceNumber, saleDate, operationDate, issueDate, accountingDate, counterparty, item);
     }
 
-    // toString
     @Override
     public String toString() {
         return "InvoiceEntity{" +
                 "id=" + id +
                 ", invoiceNumber='" + invoiceNumber + '\'' +
+                ", saleDate=" + saleDate +
                 ", operationDate=" + operationDate +
                 ", issueDate=" + issueDate +
                 ", accountingDate=" + accountingDate +
-                ", counterpartyId=" + counterparty +
+                ", counterparty=" + counterparty +
                 '}';
     }
 }

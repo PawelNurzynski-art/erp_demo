@@ -41,8 +41,9 @@ public class ProductController {
     public ProductEntity addProduct(@RequestBody ProductDto productDto) {
         ProductEntity newProduct = new ProductEntity();
 
-        newProduct.setBrand(productDto.getBrand());
         newProduct.setCategory(productDto.getCategory());
+        newProduct.setBrand(productDto.getBrand());
+        newProduct.setModel(productDto.getModel());
         newProduct.setDefinitionState(productDto.getDefinitionState());
         newProduct.setMeasureUnit(productDto.getMeasureUnit());
         newProduct.setDescription(productDto.getDescription());
@@ -63,8 +64,9 @@ public class ProductController {
                               @RequestBody ProductDto productDto) {
         ProductEntity editedProduct = productRepository.getById(id);
 
-        editedProduct.setBrand(productDto.getBrand());
         editedProduct.setCategory(productDto.getCategory());
+        editedProduct.setBrand(productDto.getBrand());
+        editedProduct.setModel(productDto.getModel());
         editedProduct.setDefinitionState(productDto.getDefinitionState());
         editedProduct.setMeasureUnit(productDto.getMeasureUnit());
         editedProduct.setDescription(productDto.getDescription());

@@ -1,46 +1,32 @@
 databaseChangeLog:
   - changeSet:
-      id: 002_create_product_table
+      id: 006_insert_data_to_product_table.yaml
       author: pawel
       changes:
-        - createTable:
+        - loadData:
+            file: 006/006_data_to_product_table.csv
+            relativeToChangelogFile: true
             tableName: product
+            encoding: UTF-8
+            separator: ','
             columns:
               - column:
                   name: id
                   type: uuid
-                  constraints:
-                    primaryKey: true
-                    nullable: false
               - column:
                   name: category
                   type: varchar(25)
-                  constraints:
-                    nullable: false
               - column:
                   name: brand
                   type: varchar(25)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: model
-                  type: varchar(25)
-                  constraints:
-                    nullable: false
               - column:
                   name: definition_state
                   # Len taken from max enum item size.
                   type: varchar(8)
-                  constraints:
-                    nullable: false
               - column:
                   name: measure_unit
                   # Len taken from max enum item size.
                   type: varchar(4)
-                  constraints:
-                    nullable: false
               - column:
                   name: description
                   type: varchar(255)
-                  constraints:
-                    nullable: false

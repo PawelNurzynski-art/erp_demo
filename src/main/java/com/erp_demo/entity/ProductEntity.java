@@ -13,8 +13,9 @@ import java.util.UUID;
 public class ProductEntity {
     @Id
     private UUID id = UUID.randomUUID();
-    private String brand;
     private String category;
+    private String brand;
+    private String model;
     @Enumerated(EnumType.STRING)
     private DefinitionState definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
     private String measureUnit;
@@ -23,13 +24,14 @@ public class ProductEntity {
     private List<ItemEntity> items = new ArrayList<>();
 
     // constructors
-    public ProductEntity() {}
+    public ProductEntity() {
+    }
 
-
-    public ProductEntity(String brand, String category, DefinitionState definitionState,
+    public ProductEntity(String category, String brand, String model, DefinitionState definitionState,
                          String measureUnit, String description) {
-        this.brand = brand;
         this.category = category;
+        this.brand = brand;
+        this.model = model;
         this.definitionState = definitionState;
         this.measureUnit = measureUnit;
         this.description = description;
@@ -84,33 +86,40 @@ public class ProductEntity {
         this.description = description;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
 
     // equals and hashCode
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductEntity that = (ProductEntity) o;
-        return id.equals(that.id) && brand.equals(that.brand) && category.equals(that.category) && definitionState.equals(that.definitionState) && measureUnit.equals(that.measureUnit) && description.equals(that.description);
+        ProductEntity product = (ProductEntity) o;
+        return id.equals(product.id) && category.equals(product.category) && brand.equals(product.brand) && model.equals(product.model) && definitionState == product.definitionState && measureUnit.equals(product.measureUnit) && description.equals(product.description) && Objects.equals(items, product.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, category, definitionState, measureUnit, description);
+        return Objects.hash(id, category, brand, model, definitionState, measureUnit, description, items);
     }
-
 
     // toString
     @Override
     public String toString() {
         return "ProductEntity{" +
                 "id=" + id +
-                ", brand='" + brand + '\'' +
                 ", category='" + category + '\'' +
-                ", definitionState='" + definitionState + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", definitionState=" + definitionState +
                 ", measureUnit='" + measureUnit + '\'' +
                 ", description='" + description + '\'' +
+                ", items=" + items +
                 '}';
     }
 }

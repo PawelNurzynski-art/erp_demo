@@ -1,49 +1,36 @@
 databaseChangeLog:
   - changeSet:
-      id: 004_create_invoice_table
+      id: 008_insert_data_to_invoice_table.yaml
       author: pawel
       changes:
-        - createTable:
+        - loadData:
+            file: 008/008_data_to_invoice_table.csv
+            relativeToChangelogFile: true
             tableName: invoice
+            encoding: UTF-8
+            separator: ','
             columns:
               - column:
                   name: id
                   type: uuid
-                  constraints:
-                    primaryKey: true
-                    nullable: false
               - column:
                   name: invoice_number
                   type: varchar(20)
-                  constraints:
-                    nullable: false
               - column:
                   name: sale_date
                   type: date
-                  constraints:
-                    nullable: false
               - column:
                   name: operation_date
                   type: date
-                  constraints:
-                    nullable: false
               - column:
                   name: issue_date
                   type: date
-                  constraints:
-                    nullable: false
               - column:
                   name: accounting_date
                   type: date
-                  constraints:
-                    nullable: false
               - column:
                   name: counterparty_id
                   type: uuid
-                  constraints:
-                    nullable: false
               - column:
                   name: item_id
                   type: uuid
-                  constraints:
-                    nullable: false

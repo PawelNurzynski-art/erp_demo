@@ -42,6 +42,9 @@ public class ItemController {
         ItemEntity item = new ItemEntity();
 
         item.setProduct(newItem.getProduct());
+        item.setColor(newItem.getColor());
+        item.setProductionYear(newItem.getProductionYear());
+        item.setEngineCapacity(newItem.getEngineCapacity());
         item.setPrice(newItem.getPrice());
 
         itemRepository.save(item);

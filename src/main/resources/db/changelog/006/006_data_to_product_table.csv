@@ -1,0 +1,26 @@
+id,brand,model,category,definition_state,measure_unit,description
+5260745a-00ff-49af-adbb-f7f20ebaefbe,Ford,Focus,cars,NEW,szt.,Samochód osobowy
+68e5d33f-c317-4fa5-ae3a-34a32badf4d0,Toyota,Avensis,cars,APPROVED,szt.,Samochód osobowy
+3a7fc871-b678-4fee-87c3-a386300a194c,Honda,Civic,cars,CANCELED,szt.,Samochód osobowy
+9ae45a9a-dfe0-49e2-885e-0b0c31506b6b,Hyundai,Santa Fe,cars,ARCHIVAL,szt.,Samochód osobowy
+402a76e2-11a9-49cd-a48b-f26fbfd62b57,BMW,X3,cars,NEW,szt.,Samochód osobowy
+c37acb4a-9807-4ecb-bfbc-76daae8eb2e5,Nissan,Qashqai,cars,APPROVED,szt.,Samochód osobowy
+77cb5351-8416-477c-9a22-05c307088499,Mazda,3,cars,CANCELED,szt.,Samochód osobowy
+8ccc00a2-b481-4c6b-ba72-123eb76b838e,Audi,A4,cars,ARCHIVAL,szt.,Samochód osobowy
+3c6d8203-2489-435e-8a5e-b33df1d7e7ad,Chevrolet,Aveo,cars,NEW,szt.,Samochód osobowy
+6c0ea815-246b-4747-a47f-a00221005a24,Mercedes,C-Class,cars,APPROVED,szt.,Samochód osobowy
+6ad9231c-436a-4478-a46a-03b92c8ec3eb,Fiat,Punto,cars,CANCELED,szt.,Samochód osobowy
+6559779f-81c3-43b0-b727-78ad4f4bd0f3,Opel,Insignia,cars,ARCHIVAL,szt.,Samochód osobowy
+48ed343a-e331-4c48-a529-b361a524349f,Jeep,Grand Cherokee,cars,NEW,szt.,Samochód osobowy
+e177d1d5-78f5-4afb-8029-9ddaa53cb205,Renault,Kadjar,cars,APPROVED,szt.,Samochód osobowy
+becd643e-06e8-48ff-87cb-45f9ea8b410f,Volvo,XC60,cars,CANCELED,szt.,Samochód osobowy
+fce78bc0-91ec-4a64-92e3-288551996f76,Peugeot,308,cars,ARCHIVAL,szt.,Samochód osobowy
+8ec672b9-6042-4887-a670-75a83e3b5a1c,Volkswagen,Golf,cars,NEW,szt.,Samochód osobowy
+ec0abccf-971c-42fc-97a8-f1702da5f43f,Seat,Ibiza,cars,APPROVED,szt.,Samochód osobowy
+d0e3d18b-fe1a-48e0-8e38-67e548d3b329,Kia,Ceed,cars,CANCELED,szt.,Samochód osobowy
+2dbd7995-cb16-4766-8ff6-66de536005d0,Skoda,Octavia,cars,ARCHIVAL,szt.,Samochód osobowy
+6a7faeb7-619a-434e-9a9c-f1307115c399,Suzuki,Swift,cars,NEW,szt.,Samochód osobowy
+085a5fd4-6ada-4384-9d5d-9879b2f0a96c,Mitsubishi,ASX,cars,APPROVED,szt.,Samochód osobowy
+292f84fc-8623-48e0-a033-2795c9344920,Dacia,Sandero,cars,CANCELED,szt.,Samochód osobowy
+994d3fc8-9527-48fc-b78a-d47b3f0faee8,Citroen,C4,cars,ARCHIVAL,szt.,Samochód osobowy
+b7d3d448-bcd7-484d-a5d2-0dcedb6e886b,Lancia,Ypsilon,cars,NEW,szt.,Samochód osobowy

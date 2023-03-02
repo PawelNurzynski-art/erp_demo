@@ -1,44 +1,33 @@
 databaseChangeLog:
   - changeSet:
-      id: 001_create_counterparty_table
+      id: 005_insert_data_to_counterparty_table
       author: pawel
       changes:
-        - createTable:
+        - loadData:
+            file: 005/005_data_to_counterparty_table.csv
+            relativeToChangelogFile: true
             tableName: counterparty
+            encoding: UTF-8
+            separator: ','
             columns:
               - column:
                   name: id
                   type: uuid
-                  constraints:
-                    primaryKey: true
-                    nullable: false
               - column:
                   name: name
                   type: varchar(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: street
                   type: varchar(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: house_number
                   type: integer
-                  constraints:
-                    nullable: false
               - column:
                   name: zip_code
                   type: varchar(10)
-                  constraints:
-                    nullable: false
               - column:
                   name: city
                   type: varchar(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: bank_account
                   type: varchar(30)
-                  constraints:
-                    nullable: false

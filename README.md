@@ -21,7 +21,6 @@ File with collection in Postman: erp_demo.postman_collection.json.
 Next to do:
 <ul>
 <li>addition of mappers (MapStruct)</li>
-<li>adding enum to definitionState</li>
 <li>correct response codes in case of errors</li>
 <li>addition of lombok</li>
 <li>liquibase scripts to load the database with data (developer profile)</li>
