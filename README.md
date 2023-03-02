@@ -22,7 +22,6 @@ Next to do:
 <ul>
 <li>addition of mappers (MapStruct)</li>
 <li>adding enum to definitionState</li>
-<li>return object in update operation</li>
 <li>correct response codes in case of errors</li>
 <li>addition of lombok</li>
 <li>liquibase scripts to load the database with data (developer profile)</li>
