@@ -1,6 +1,6 @@
-package com.erp_demo.repository;
+package com.erp_demo.repositories;
 
-import com.erp_demo.entity.ItemEntity;
+import com.erp_demo.entities.ItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
