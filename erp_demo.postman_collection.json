@@ -175,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"brand\" : \"Ford\",\r\n    \"category\" : \"car\",\r\n    \"definitionState\" : \"new\",\r\n    \"measureUnit\" : \"szt.\",\r\n    \"description\" : \"This is test product.\"\r\n}",
+							"raw": "{\r\n    \"category\": \"cars\",\r\n    \"brand\" : \"Ford\",\r\n    \"model\": \"Test\",\r\n    \"definitionState\" : \"NEW\",\r\n    \"measureUnit\" : \"SZT\",\r\n    \"description\" : \"This is test product.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -296,7 +296,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"product\" : \"c8035a99-7467-49bc-bfac-d212c1450ed5\",\r\n    \"price\" : 9.45\r\n}",
+							"raw": "{\r\n    \"product\" : \"402a76e2-11a9-49cd-a48b-f26fbfd62b57\",\r\n    \"color\" : \"czarny\",\r\n    \"productionYear\" : 2020,\r\n    \"engineCapacity\" : 3.2, \r\n    \"price\" : 9.45\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
