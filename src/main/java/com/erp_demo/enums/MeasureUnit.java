@@ -1,7 +1,7 @@
 package com.erp_demo.enums;
 
 public enum MeasureUnit {
-    SZTUKA("szt.");
+    SZT("szt.");
 
     private final String measureUnit;
 

@@ -45,7 +45,11 @@ public class ProductDto {
     }
 
     public void setMeasureUnit(MeasureUnit measureUnit) {
-        this.measureUnit = measureUnit;
+        if (measureUnit == null) {
+            measureUnit = MeasureUnit.SZT;
+        } else {
+            this.measureUnit = measureUnit;
+        }
     }
 
     public String getDescription() {
