@@ -1,6 +1,7 @@
-package com.erp_demo.entity;
+package com.erp_demo.entities;
 
 import com.erp_demo.enums.DefinitionState;
+import com.erp_demo.enums.MeasureUnit;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class ProductEntity {
     private String model;
     @Enumerated(EnumType.STRING)
     private DefinitionState definitionState; // 1 - new, 2 - approved, 3 - canceled, 4 - archival
-    private String measureUnit;
+    @Enumerated(EnumType.STRING)
+    private MeasureUnit measureUnit;
     private String description;
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemEntity> items = new ArrayList<>();
@@ -28,7 +30,7 @@ public class ProductEntity {
     }
 
     public ProductEntity(String category, String brand, String model, DefinitionState definitionState,
-                         String measureUnit, String description) {
+                         MeasureUnit measureUnit, String description) {
         this.category = category;
         this.brand = brand;
         this.model = model;
@@ -70,11 +72,11 @@ public class ProductEntity {
         this.definitionState = definitionState;
     }
 
-    public String getMeasureUnit() {
+    public MeasureUnit getMeasureUnit() {
         return measureUnit;
     }
 
-    public void setMeasureUnit(String measureUnit) {
+    public void setMeasureUnit(MeasureUnit measureUnit) {
         this.measureUnit = measureUnit;
     }
 

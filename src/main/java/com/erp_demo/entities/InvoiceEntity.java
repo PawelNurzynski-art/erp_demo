@@ -1,4 +1,4 @@
-package com.erp_demo.entity;
+package com.erp_demo.entities;
 
 import jakarta.persistence.*;
 
