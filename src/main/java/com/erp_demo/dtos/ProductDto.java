@@ -1,4 +1,4 @@
-package com.erp_demo.dto;
+package com.erp_demo.dtos;
 
 import com.erp_demo.enums.DefinitionState;
 

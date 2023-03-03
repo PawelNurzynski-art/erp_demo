@@ -1,4 +1,4 @@
-package com.erp_demo.dto;
+package com.erp_demo.dtos;
 
 public class CounterpartyDto {
 

@@ -1,7 +1,7 @@
-package com.erp_demo.dto;
+package com.erp_demo.dtos;
 
-import com.erp_demo.entity.CounterpartyEntity;
-import com.erp_demo.entity.ItemEntity;
+import com.erp_demo.entities.CounterpartyEntity;
+import com.erp_demo.entities.ItemEntity;
 
 import java.time.LocalDate;
 
