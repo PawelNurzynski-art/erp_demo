@@ -1,8 +1,8 @@
-package com.erp_demo.controller;
+package com.erp_demo.controllers;
 
-import com.erp_demo.dto.ItemDto;
-import com.erp_demo.entity.ItemEntity;
-import com.erp_demo.repository.ItemRepository;
+import com.erp_demo.dtos.ItemDto;
+import com.erp_demo.entities.ItemEntity;
+import com.erp_demo.repositories.ItemRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

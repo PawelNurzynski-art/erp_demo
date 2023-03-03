@@ -1,9 +1,9 @@
-package com.erp_demo.controller;
+package com.erp_demo.controllers;
 
-import com.erp_demo.dto.InvoiceDto;
-import com.erp_demo.entity.InvoiceEntity;
-import com.erp_demo.repository.CounterpartyRepository;
-import com.erp_demo.repository.InvoiceRepository;
+import com.erp_demo.dtos.InvoiceDto;
+import com.erp_demo.entities.InvoiceEntity;
+import com.erp_demo.repositories.CounterpartyRepository;
+import com.erp_demo.repositories.InvoiceRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

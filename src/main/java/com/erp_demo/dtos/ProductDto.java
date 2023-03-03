@@ -1,6 +1,7 @@
 package com.erp_demo.dtos;
 
 import com.erp_demo.enums.DefinitionState;
+import com.erp_demo.enums.MeasureUnit;
 
 public class ProductDto {
 
@@ -8,7 +9,7 @@ public class ProductDto {
     private String brand;
     private String model;
     private DefinitionState definitionState;
-    private String measureUnit;
+    private MeasureUnit measureUnit;
     private String description;
 
     // constructor
@@ -39,11 +40,11 @@ public class ProductDto {
         this.definitionState = definitionState;
     }
 
-    public String getMeasureUnit() {
+    public MeasureUnit getMeasureUnit() {
         return measureUnit;
     }
 
-    public void setMeasureUnit(String measureUnit) {
+    public void setMeasureUnit(MeasureUnit measureUnit) {
         this.measureUnit = measureUnit;
     }
 
