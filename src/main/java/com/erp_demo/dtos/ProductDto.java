@@ -3,6 +3,8 @@ package com.erp_demo.dtos;
 import com.erp_demo.enums.DefinitionState;
 import com.erp_demo.enums.MeasureUnit;
 
+import java.util.Objects;
+
 public class ProductDto {
 
     private String category;
@@ -45,11 +47,7 @@ public class ProductDto {
     }
 
     public void setMeasureUnit(MeasureUnit measureUnit) {
-        if (measureUnit == null) {
-            measureUnit = MeasureUnit.SZT;
-        } else {
-            this.measureUnit = measureUnit;
-        }
+        this.measureUnit = Objects.requireNonNullElse(measureUnit, MeasureUnit.SZT);
     }
 
     public String getDescription() {
